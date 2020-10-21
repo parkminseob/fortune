@@ -7,12 +7,13 @@ import java.util.List;
 import com.fortune.pms.domain.Fortune;
 import com.fortune.util.Prompt;
 
-public class FortuneAddCommand {
+public class FortuneAddCommand implements Command {
   List<Fortune> fortuneList = new ArrayList<>();
   public FortuneAddCommand(List<Fortune> fortuneList) {
     this.fortuneList = fortuneList;
   }
 
+  @Override
   public void execute(PrintWriter out, BufferedReader in) {
     System.out.println("운세 등록");
 
