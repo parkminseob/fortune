@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson:2.8.6'
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
 
@@ -31,5 +31,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'com.fortune.ServerApp'
+    mainClassName = 'com.eomcs.pms.ServerApp'
 }
