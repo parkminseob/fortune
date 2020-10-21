@@ -10,12 +10,13 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import com.fortune.context.ApplicationContextListener;
 import com.fortune.pms.handler.Command;
 import com.fortune.pms.listener.AppInitListener;
 import com.fortune.pms.listener.DataHandlerListener;
 import com.fortune.pms.listener.RequestMappingListener;
-import com.fortune.util.ThreadPool.Worker;
 
 public class ServerApp {
 
@@ -23,7 +24,7 @@ public class ServerApp {
   // - 이 값이 true 이면 다음 클라이언트 접속할 때 서버를 종료한다.
   static boolean stop = false;
 
-  Worker pool = new Worker();
+  ExecutorService pool = Executors.newCachedThreadPool();
   // 옵저버와 공유할 맵 객체
   static Map<String,Object> context = new Hashtable<>();
 

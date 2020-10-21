@@ -10,7 +10,9 @@ import com.fortune.pms.handler.HelloCommand;
 import com.fortune.pms.handler.MemberAddCommand;
 import com.fortune.pms.handler.MemberDeleteCommand;
 import com.fortune.pms.handler.MemberDetailCommand;
+import com.fortune.pms.handler.MemberJoinCommand;
 import com.fortune.pms.handler.MemberListCommand;
+import com.fortune.pms.handler.MemberLoginCommand;
 import com.fortune.pms.handler.MemberUpdateCommand;
 
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
@@ -32,7 +34,8 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/member/delete", new MemberDeleteCommand(memberList));
     context.put("test", new FortuneAddCommand(fortuneList));
     context.put("/hello", new HelloCommand());
-
+    context.put("/login", new MemberLoginCommand(memberList));
+    context.put("/join", new MemberJoinCommand(memberList));
   }
 
   @Override
