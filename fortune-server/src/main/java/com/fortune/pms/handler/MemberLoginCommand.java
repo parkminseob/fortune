@@ -15,18 +15,22 @@ public class MemberLoginCommand implements Command {
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
+    memberList.add(new Member());
     try {
+      out.println("[아이디에 빈 문자열을 입력하면 로그인이 취소됩니다.]");
       while (true) {
         String Id = Prompt.inputString("ID : ", out, in);
-
         String Password = Prompt.inputString("Password : ", out, in);
-
         Member member = FindId(Id);
+
+        if(Id.equals("")) {
+          return;
+        }
 
         if (member == null) {
           out.println("입력하신 아이디가 일치하지 않습니다.");
           out.println("다시 입력하시오.");
-        } else if(member.getPassword().equals(Password)) {
+        } else if(member.getId().equals(Id) && member.getPassword().equals(Password)) {
           out.println("Fortune에 접속하였습니다.");
           break;
         } else {

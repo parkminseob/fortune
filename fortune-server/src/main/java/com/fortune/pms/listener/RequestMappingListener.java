@@ -5,6 +5,7 @@ import java.util.Map;
 import com.fortune.context.ApplicationContextListener;
 import com.fortune.pms.domain.Fortune;
 import com.fortune.pms.domain.Member;
+import com.fortune.pms.handler.CommandListCommand;
 import com.fortune.pms.handler.FortuneAddCommand;
 import com.fortune.pms.handler.FortuneResponseCommand;
 import com.fortune.pms.handler.HelloCommand;
@@ -38,6 +39,7 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/hello", new HelloCommand());
     context.put("/login", new MemberLoginCommand(memberList));
     context.put("/join", new MemberJoinCommand(memberList));
+    context.put("/command", new CommandListCommand());
   }
 
   @Override
