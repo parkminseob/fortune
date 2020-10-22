@@ -20,10 +20,10 @@ public class FortuneResponseCommand implements Command{
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
 	  MemberLoginCommand mm = new MemberLoginCommand(memberList);
-	  Member member = mm.returnmember();
+	  mm.member = mm.returnmember();
     int index = (int) (Math.random() * fortuneList.size());
     String response = fortuneList.get(index).getFortune();
-    out.println(member.getName());
+    out.println(mm.member.getName());
     out.println(response);
     stack.push(response);
 
