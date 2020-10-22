@@ -8,6 +8,7 @@ import com.fortune.util.Prompt;
 
 public class ClientApp {
 
+  static String id = "";
   static String host;
   static int port;
 
@@ -24,6 +25,7 @@ public class ClientApp {
     System.out.println("로그인 : /login , 회원가입 : /join");
 
     while (true) {
+<<<<<<< HEAD
       String[] arr = new String[5];
       arr[0] = "\t\t__        __   _";
       arr[1] = "\t\t\\ \\      / /__| | ___ ___  _ __ ___   ___ ";
@@ -48,6 +50,10 @@ public class ClientApp {
         System.out.println();
       }
       String input = Prompt.inputString("\t\t 번호를 선택하세요 => ");
+=======
+
+      String input = Prompt.inputString("명령> ");
+>>>>>>> 7afbf0dc1d6056ccad14390a8bf2cefa127a6b8d
 
       if (input.equalsIgnoreCase("quit"))
         break;
