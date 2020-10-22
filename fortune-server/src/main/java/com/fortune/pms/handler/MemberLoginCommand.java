@@ -8,6 +8,7 @@ import com.fortune.util.Prompt;
 
 public class MemberLoginCommand implements Command {
   List<Member> memberList;
+  Member loggedInMember;
   Member member;
   public MemberLoginCommand(List<Member> list) {
     this.memberList = list;
@@ -48,6 +49,9 @@ public class MemberLoginCommand implements Command {
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
+  }
+  public Member returnmember() {
+    return this.member;
   }
 
   private Member FindId(String Id) {

@@ -11,7 +11,11 @@ public class Member {
   private String name;
   private String password;
   private String id;
+  private String gender;
+  private int age;
+
   private int userGrade;
+  private String checkBadMember;
   private Date registeredDate;
   private List<String> fortuneList = new ArrayList<>();
   private List<String> favoriteFortuneList = new ArrayList<>();
@@ -41,6 +45,30 @@ public class Member {
     this.id = id;
     this.password = password;
     this.name = name;
+  }
+
+  public String getGender() {
+    return gender;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
+
+  public int getAge() {
+    return age;
+  }
+
+  public void setAge(int age) {
+    this.age = age;
+  }
+
+  public String getCheckBadMember() {
+    return checkBadMember;
+  }
+
+  public void setCheckBadMember(String checkBadMember) {
+    this.checkBadMember = checkBadMember;
   }
 
   public String getId() {
