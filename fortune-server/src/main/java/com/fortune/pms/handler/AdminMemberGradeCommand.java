@@ -16,6 +16,14 @@ public class AdminMemberGradeCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
+      if (!MemberLoginCommand.loginStatus) {
+        out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+        out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+        out.println("\t\t!!!!관리자만 사용할 수 있습니다!!!!");
+        out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+        out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+        return;
+      }
 
       out.println("[회원등급 관리]");
       String Id = Prompt.inputString("회원 Id : ",out, in);

@@ -24,9 +24,30 @@ public class ClientApp {
     System.out.println("로그인 : /login , 회원가입 : /join");
 
     while (true) {
-      System.out.println("커맨드 리스트를 보려면 /member/command를 입력하세요.");
-
-      String input = Prompt.inputString("명령> ");
+      String[] arr = new String[5];
+      arr[0] = "\t\t__        __   _";
+      arr[1] = "\t\t\\ \\      / /__| | ___ ___  _ __ ___   ___ ";
+      arr[2] = "\t\t \\ \\ /\\ / / _ \\ |/ __/ _ \\|  _   _ \\ / _ \\";
+      arr[3] = "\t\t  \\ V  V /  __/ | (_| (_) | | | | | |  __/";
+      arr[4] = "\t\t   \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|";
+      for (int i = 0; i < arr.length; i++) {
+        System.out.println(arr[i]);
+      }
+      String[] arr2 = new String[9];
+      arr2[0] = "\t\t----------------------------------------------------";
+      arr2[1] = "\t\t\t\t    버스타서 할거읎제~ ";
+      arr2[2] = "\t\t-------------------------------------관리자 메뉴---";
+      arr2[3] = "\t\t   1. 운세! \t\t\t|    a. 운세 추가하기 ";
+      arr2[4] = "\t\t   2. 오늘 뭐먹지  \t\t|    b. 회원 상세보기  ";
+      arr2[5] = "\t\t   3. 내 정보\t\t \t|    c. 회원 리스트 ";
+      arr2[6] = "\t\t   4. 내 정보 바꾸기\t\t|    d. 완장질 ";
+      arr2[7] = "\t\t   5. 날 지우기,, \t\t|    e. 메뉴 추가 ";
+      arr2[8] = "\t\t--------------------------- ";
+      for (int i = 0; i < arr2.length; i++) {
+        System.out.println(arr2[i]);
+        System.out.println();
+      }
+      String input = Prompt.inputString("\t\t 번호를 선택하세요 => ");
 
       if (input.equalsIgnoreCase("quit"))
         break;

@@ -17,6 +17,14 @@ public class MemberListCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     out.println("[회원 목록]");
+    if (!MemberLoginCommand.loginStatus) {
+      out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+      out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+      out.println("\t\t!!!!관리자만 사용할 수 있습니다!!!!");
+      out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+      out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+      return;
+    }
 
     // 전체 목록을 조회할 때 `Iterator` 객체를 사용한다.
     // 만약 목록의 일부만 조회하면다면 인덱스를 직접 다루는 이전 방식을 사용해야 한다.

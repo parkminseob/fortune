@@ -128,27 +128,18 @@ public class ServerApp {
       }
 
       switch (request) {
-        case "1": request = "/board/add"; break;
-        case "2": request = "/board/detail"; break;
-        case "3": request = "/board/update"; break;
-        case "4": request = "/board/delete"; break;
-        case "5": request = "/board/list"; break;
-        case "6": request = "/member/detail"; break;
-        case "7": request = "/member/update"; break;
-        case "8": request = "/member/delete"; break;
-        case "9": request = "/fortune/res"; break;
-        case "10": request = "/lunch/res"; break;
+        case "1": request = "/fortune/res"; break;
+        case "2": request = "/lunch/res"; break;
+        case "3": request = "/member/detail"; break;
+        case "4": request = "/member/update"; break;
+        case "5": request = "/member/delete"; break;
+
 
         case "a": request = "/fortune/add"; break;
         case "b": request = "/member/detail"; break;
         case "c": request = "/member/list"; break;
         case "d": request = "/member/grade"; break;
-        case "e": request = "/board/add"; break;
-        case "f": request = "/board/detail"; break;
-        case "g": request = "/board/update"; break;
-        case "h": request = "/board/delete"; break;
-        case "i": request = "/board/list"; break;
-        case "j": request = "/lunch/add"; break;
+        case "e": request = "/lunch/add"; break;
       }
 
       Command command = (Command) context.get(request);

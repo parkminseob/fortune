@@ -14,6 +14,14 @@ public class LunchAddCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     Lunch lunch = new Lunch();
+    if (!MemberLoginCommand.loginStatus) {
+      out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+      out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+      out.println("\t\t!!!!관리자만 사용할 수 있습니다!!!!");
+      out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+      out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
+      return;
+    }
     try {
       System.out.printf("점심을 등록합니다");
 
