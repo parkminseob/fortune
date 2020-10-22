@@ -24,10 +24,12 @@ public class MemberListCommand implements Command {
 
     while (iterator.hasNext()) {
       Member member = iterator.next();
-      out.printf("%d, %s, %s, %s, %s\n",
+      out.printf("%s, %s, %d, %s, %s\n",
           member.getName(),
           member.getId(),
-          member.getRegisteredDate());
+          member.getAge(),
+          member.getGender(),
+          member.getcheckMemberGrade());
     }
   }
 
@@ -40,5 +42,4 @@ public class MemberListCommand implements Command {
     }
     return null;
   }
-
 }

@@ -24,13 +24,18 @@ public class MemberJoinCommand implements Command {
       String Password = Prompt.inputString("Password : ", out, in);
       String Password2 = Prompt.inputString("Password Confirm : ", out, in);
       String Name = Prompt.inputString("Name : ", out, in);
-      //String gender = Prompt.inputString("Gender : (1.남자/2.여자)");
-
+      int response = Prompt.inputInt("Gender : (1.남자/2.여자)", out, in);
+      String gender = null;
+      switch (response) {
+        case 1 : gender = "남자"; break;
+        case 2 : gender = "여자"; break;
+      }
+      int age = Prompt.inputInt("Age : ",out, in);
 
       if(TestId(Id)) {
         out.println("중복된 ID입니다.");
       } else if(Password.equals(Password2)) {
-        memberList.add(new Member(Id, Password, Name));
+        memberList.add(new Member(Id, Password, Name, gender, age));
         out.println("회원가입이 완료되었습니다.");
       } else {
         out.println("비밀번호를 다시 입력하시오.");
