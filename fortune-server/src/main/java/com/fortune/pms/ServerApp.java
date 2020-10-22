@@ -170,33 +170,5 @@ public class ServerApp {
     System.out.printf("클라이언트(%s)와의 연결을 끊었습니다.\n",
         address.getHostAddress());
   }
-  /*
-  private static void showMemberCommandList() {
-    System.out.println("1 : 오늘의 운세 보기");
-    System.out.println("2 : 게시글 추가하기");
-    System.out.println("3 : 게시글 상세보기");
-    System.out.println("4 : 게시글 수정하기");
-    System.out.println("5 : 게시글 삭제하기");
-    System.out.println("6 : 게시글 리스트 보기");
-    System.out.println("7 : 회원 상세조회");
-    System.out.println("8 : 회원 정보수정");
-    System.out.println("9 : 회원 탈퇴");
-    System.out.println("quit : 앱 종료");
-  }
-
-  private static void showAdminCommandList() {
-    System.out.println("a : 오늘의 운세 추가");
-    System.out.println("b : 오늘의 운세 보기");
-    System.out.println("c : 회원 상세조회");
-    System.out.println("d : 전체 회원리스트");
-    System.out.println("e : 회원 등급 설정");
-    System.out.println("f : 게시글 추가하기");
-    System.out.println("g : 게시글 상세보기");
-    System.out.println("h : 게시글 수정하기");
-    System.out.println("i : 게시글 삭제하기");
-    System.out.println("j : 게시글 리스트 보기");
-    System.out.println("quit : 앱 종료");
-    System.out.println("stop : 서버 종료");
-  }
-   */
 }
+

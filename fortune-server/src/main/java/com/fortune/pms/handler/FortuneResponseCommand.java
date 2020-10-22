@@ -20,6 +20,9 @@ public class FortuneResponseCommand implements Command{
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
+
+
+
     Member member = MemberLoginCommand.returnmember();
     out.println(member.getId()+ "님의 운세는....");
     try {
