@@ -21,8 +21,10 @@ public class FortuneAddCommand implements Command {
     try {
       fortune.setFortune(Prompt.inputString("입력", out, in));
     } catch (Exception e) {
-      e.printStackTrace();
+
       System.out.println("운세 등록 오류");
     }
+
+    fortuneList.add(fortune);
   }
 }
