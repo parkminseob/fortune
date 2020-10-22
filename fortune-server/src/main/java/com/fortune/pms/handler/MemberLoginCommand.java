@@ -49,7 +49,9 @@ public class MemberLoginCommand implements Command {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
-
+  private Member returnm() {
+    return member;
+  }
   private Member FindId(String Id) {
     for(Member member : memberList) {
       if(member.getId().equals(Id)) {

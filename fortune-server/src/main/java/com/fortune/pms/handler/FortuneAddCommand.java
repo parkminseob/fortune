@@ -15,7 +15,7 @@ public class FortuneAddCommand implements Command {
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-    System.out.println("운세 등록");
+    System.out.printf("운세 등록합니다");
 
     Fortune fortune = new Fortune();
     try {
