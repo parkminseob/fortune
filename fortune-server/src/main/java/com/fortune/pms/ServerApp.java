@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
 import com.fortune.context.ApplicationContextListener;
 import com.fortune.pms.handler.Command;
 import com.fortune.pms.listener.AppInitListener;

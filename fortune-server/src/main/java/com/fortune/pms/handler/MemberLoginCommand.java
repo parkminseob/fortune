@@ -9,6 +9,7 @@ import com.fortune.util.Prompt;
 public class MemberLoginCommand implements Command {
   List<Member> memberList;
   static Member member;
+
   public MemberLoginCommand(List<Member> list) {
     this.memberList = list;
   }
@@ -34,12 +35,15 @@ public class MemberLoginCommand implements Command {
 
           if(Id.equals("admin")) {
             out.println("[관리자 계정으로 로그인 했습니다.]");
+            out.println("사용 할 수 있는 명령창을 보시려면 /admin/command를 입력해 주세요.");
             break;
           }
 
           out.println(returnmember().getId());
-          out.printf("%s님 안녕하세요!\n", Id);
-          out.println("Fortune에 접속하였습니다.");
+          out.println("Fortune에 [일반 회원]으로 접속하였습니다.");
+          out.printf("[%s]님 안녕하세요!\n", Id);
+          out.println("사용 할 수 있는 명령창을 보시려면 /user/command를 입력해 주세요.");
+
           break;
         } else {
           out.println("입력하신 패스워드가 일치하지 않습니다.");
@@ -50,7 +54,6 @@ public class MemberLoginCommand implements Command {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
-
 
   public static Member returnmember() {
     return member;

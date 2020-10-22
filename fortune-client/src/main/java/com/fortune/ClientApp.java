@@ -20,9 +20,10 @@ public class ClientApp {
 
     host = args[0];
     port = Integer.parseInt(args[1]);
+    System.out.println("[로그인이나 회원가입을 해주세요.]");
+    System.out.println("로그인 : /login , 회원가입 : /join");
 
     while (true) {
-      System.out.println("[Command목록을 보고싶다면 /Command라고 입력해주세요.]");
       String input = Prompt.inputString("명령> ");
       if (input.equalsIgnoreCase("quit"))
         break;
@@ -34,10 +35,6 @@ public class ClientApp {
     }
     System.out.println("안녕!");
 
-
-  }
-
-  public void commandList() {
 
   }
 
