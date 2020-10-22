@@ -17,12 +17,12 @@ public class AdminMemberGradeCommand implements Command {
   public void execute(PrintWriter out, BufferedReader in) {
     try {
 
-      out.println("[불량회원 관리]");
+      out.println("[회원등급 관리]");
       String Id = Prompt.inputString("회원 Id : ");
       Member member = FindId(Id);
 
       if (Id == null) {
-        out.println("해당 번호의 회원이 없습니다.");
+        out.println("해당 Id의 회원이 없습니다.");
         return;
       }
 

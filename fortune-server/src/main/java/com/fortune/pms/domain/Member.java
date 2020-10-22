@@ -13,13 +13,26 @@ public class Member {
   private String id;
   private String gender;
   private int age;
-
   private int userGrade;
   private String checkMemberGrade;
   private Date registeredDate;
+
   private List<String> fortuneList = new ArrayList<>();
   private List<String> favoriteFortuneList = new ArrayList<>();
 
+  public Member() {
+    this.id = "admin";
+    this.password = "1234";
+    this.name = "관리자";
+  }
+
+  public Member(String id, String password, String name, String gender, int age) {
+    this.id = id;
+    this.password = password;
+    this.name = name;
+    this.gender = gender;
+    this.age = age;
+  }
 
   public List<String> getFortuneList() {
     return fortuneList;
@@ -35,16 +48,6 @@ public class Member {
 
   public void setFavoriteFortuneList(List<String> favoriteFortuneList) {
     this.favoriteFortuneList = favoriteFortuneList;
-  }
-
-  public Member() {
-
-  }
-
-  public Member(String id, String password, String name) {
-    this.id = id;
-    this.password = password;
-    this.name = name;
   }
 
   public String getGender() {
