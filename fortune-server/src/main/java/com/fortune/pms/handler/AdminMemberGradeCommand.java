@@ -28,11 +28,13 @@ public class AdminMemberGradeCommand implements Command {
 
       out.println("회원 등급 설정");
       int grade = Prompt.inputInt("1.우수회원 / 2.불량회원");
-
+      String userGrade = null;
       switch(grade) {
-        case 1 : "[불량 회원]"; break;
+        case 1 : userGrade = "[우수 회원]"; break;
+        case 2 : userGrade = "[불량 회원]"; break;
       }
 
+      member.setCheckBadMember(userGrade);
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
