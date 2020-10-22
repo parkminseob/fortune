@@ -72,10 +72,6 @@ public class ServerApp {
           break;
         }
 
-        if(MemberLoginCommand.loginStatus()) {
-          out.println("사용 할 수 있는 명령창을 보시려면 /admin/command를 입력해 주세요.");
-
-        }
 
         // 람다 문법 사용
         pool.execute(() -> handleClient(clientSocket));

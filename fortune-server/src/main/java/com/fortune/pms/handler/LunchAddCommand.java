@@ -13,10 +13,10 @@ public class LunchAddCommand implements Command {
   }
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-    System.out.printf("점심을 등록합니다");
-
     Lunch lunch = new Lunch();
     try {
+      System.out.printf("점심을 등록합니다");
+
       lunch.setLunch(Prompt.inputString("입력", out, in));
     } catch (Exception e) {
 

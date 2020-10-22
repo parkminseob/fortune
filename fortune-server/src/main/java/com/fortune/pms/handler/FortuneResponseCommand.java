@@ -21,9 +21,19 @@ public class FortuneResponseCommand implements Command{
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     Member member = MemberLoginCommand.returnmember();
+    out.println(member.getId()+ "님의 운세는....");
+    try {
+      Thread.sleep(3000);
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+
     int index = (int) (Math.random() * fortuneList.size());
     String response = fortuneList.get(index).getFortune();
-    out.printf(member.getId()+ "님! " + response);
+
+    out.println(member.getId()+ "님! " + response);
     member.fortuneList.add(response);
     try {
       String favorite = Prompt.inputString("운세가 맘에 들면 다음에 또 보자 ===> good", out, in);
@@ -36,6 +46,7 @@ public class FortuneResponseCommand implements Command{
     }
 
   }
+
 
 
 }

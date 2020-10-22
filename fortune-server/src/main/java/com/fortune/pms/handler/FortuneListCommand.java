@@ -10,6 +10,7 @@ public class FortuneListCommand implements Command{
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     this.member = MemberLoginCommand.returnmember();
+    out.println("내가 기억하고 싶은 말들,,");
     for (int i = 0; i< member.favoriteFortuneList.size(); i++) {
       out.println(member.favoriteFortuneList.get(i));
     }
