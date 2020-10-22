@@ -50,6 +50,8 @@ public class MemberLoginCommand implements Command {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
+  
+  
   public Member returnmember() {
     return this.member;
   }

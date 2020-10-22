@@ -15,6 +15,9 @@ public class Logout implements Command {
 public void execute(PrintWriter out, BufferedReader in) {
 	// TODO Auto-generated method stub
 	
+	
+	saveData(memeberList, memberFile);
+	
 }
 private void saveData(Collection<?> list, File file) {
     BufferedWriter out = null;
