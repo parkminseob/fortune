@@ -42,7 +42,7 @@ public class ClientApp {
       }
       String[] arr2 = new String[10];
       arr2[0] = "\t\t----------------------------------------------------";
-      arr2[1] = "\t\t\t\t☆ ☆ ☆ 땅    콩☆ ☆ ☆ ";
+      arr2[1] = "\t\t\t\t☆ ☆ ☆ 땅    콩 ☆ ☆ ☆ ";
       arr2[2] = "\t\t-------------------------------------관리자 메뉴---";
       arr2[3] = "\t\t   1. 오늘의 운세! \t\t|    a. 운세 추가하기 ";
       arr2[4] = "\t\t   2. 점심 뭐먹지? \t\t|    b. 회원 상세보기  ";
@@ -55,7 +55,7 @@ public class ClientApp {
         System.out.println(arr2[i]);
         System.out.println();
       }
-      String input = Prompt.inputString("\t\t 번호를 선택하세요 => ");
+      String input = Prompt.inputString("\t\t 명령을 선택하세요 => ");
       System.out.println("                          ");
 
 
@@ -68,7 +68,7 @@ public class ClientApp {
       if (input.equalsIgnoreCase("stop"))
         break;
     }
-    System.out.println("안녕!");
+    System.out.println("\t\t안녕!");
   }
 
   private static void request(String message) {

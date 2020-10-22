@@ -16,7 +16,7 @@ public class MemberListCommand implements Command {
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-    out.println("[회원 목록]");
+    out.println("\t\t[회원 목록]");
     if (!MemberLoginCommand.loginStatus) {
       out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
       out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
@@ -32,7 +32,7 @@ public class MemberListCommand implements Command {
 
     while (iterator.hasNext()) {
       Member member = iterator.next();
-      out.printf("%s, %s, %d, %s, %s\n",
+      out.printf("\t\t%s, %s, %d, %s, %s\n",
           member.getName(),
           member.getId(),
           member.getAge(),

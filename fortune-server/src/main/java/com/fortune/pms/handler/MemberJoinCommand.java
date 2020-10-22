@@ -16,32 +16,32 @@ public class MemberJoinCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
-      out.println("[아이디에 빈 문자열을 입력하면 회원가입이 취소됩니다.]");
-      String Id = Prompt.inputString("ID : ", out, in);
+      out.println("\t\t[아이디에 빈 문자열을 입력하면 회원가입이 취소됩니다.]");
+      String Id = Prompt.inputString("\t\tID : ", out, in);
       if(Id.equals("")) {
         return;
       }
-      String Password = Prompt.inputString("Password : ", out, in);
-      String Password2 = Prompt.inputString("Password Confirm : ", out, in);
-      String Name = Prompt.inputString("Name : ", out, in);
-      int response = Prompt.inputInt("Gender : (1.남자/2.여자)", out, in);
+      String Password = Prompt.inputString("\t\tPassword : ", out, in);
+      String Password2 = Prompt.inputString("\t\tPassword Confirm : ", out, in);
+      String Name = Prompt.inputString("\t\tName : ", out, in);
+      int response = Prompt.inputInt("\t\tGender : (1.남자/2.여자)", out, in);
       String gender = null;
       switch (response) {
         case 1 : gender = "남자"; break;
         case 2 : gender = "여자"; break;
       }
-      int age = Prompt.inputInt("Age : ",out, in);
+      int age = Prompt.inputInt("\t\tAge : ",out, in);
 
       if(TestId(Id)) {
-        out.println("중복된 ID입니다.");
+        out.println("\t\t중복된 ID입니다.");
       } else if(Password.equals(Password2)) {
         memberList.add(new Member(Id, Password, Name, gender, age));
-        out.println("회원가입이 완료되었습니다.");
+        out.println("\t\t회원가입이 완료되었습니다.");
       } else {
-        out.println("비밀번호를 다시 입력하시오.");
+        out.println("\t\t비밀번호를 다시 입력하시오.");
       }
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
+      out.printf("\t\t작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
 

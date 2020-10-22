@@ -17,26 +17,34 @@ public class MemberDeleteCommand implements Command {
   public void execute(PrintWriter out, BufferedReader in) {
 
     try {
-      out.println("[회원 삭제]");
-      String Id = Prompt.inputString("Id? ", out, in);
+      out.println("                   ");
+      out.println("\t\t|￣￣￣￣￣￣￣￣￣￣￣￣￣|");
+      out.println("\t\t|        회원 탈퇴         |");
+      out.println("\t\t|＿＿＿＿＿＿＿＿＿＿＿＿＿| ");
+      out.println("\t\t(\\__/) || ");
+      out.println("\t\t(oㅅo).|| ");
+      out.println("\t\t/ . . . .づ");
+      out.println("                   ");
+
+      String Id = Prompt.inputString("\t\tId? ", out, in);
       Member member = FindId(Id);
 
       if (Id == null) {
-        out.println("해당 Id의 회원이 없습니다.");
+        out.println("\t\t해당 Id의 회원이 없습니다.");
         return;
       }
 
-      String response = Prompt.inputString("정말 삭제하시겠습니까?(y/N) ", out, in);
+      String response = Prompt.inputString("\t\t정말 삭제하시겠습니까?(y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
-        out.println("회원 삭제를 취소하였습니다.");
+        out.println("\t\t회원 삭제를 취소하였습니다.");
         return;
       }
 
       memberList.remove(member);
-      out.println("회원을 삭제하였습니다.");
+      out.println("\t\t회원을 삭제하였습니다.");
 
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
+      out.printf("\t\t작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
 

@@ -1,1 +1,1 @@
-[{"name":"park","passwdord":"1234","id":"park","gender":"여자","age":20,"fortuneList":["남과 비교하지마세요. 당신은 소중합니다."],"favoriteFortuneList":[]}]
+[{"name":"admin","password":"1234","id":"admin","gender":"남자","age":59,"fortuneList":["남과 비교하지마세요. 당신은 소중합니다."],"favoriteFortuneList":[]},{"name":"park","password":"1234","id":"park","gender":"여자","age":20,"fortuneList":[],"favoriteFortuneList":[]}]

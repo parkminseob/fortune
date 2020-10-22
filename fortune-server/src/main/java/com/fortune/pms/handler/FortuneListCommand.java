@@ -9,10 +9,19 @@ public class FortuneListCommand implements Command{
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
+    out.println("                   ");
+    out.println("\t\t|￣￣￣￣￣￣￣￣￣￣￣￣￣|");
+    out.println("\t\t|  날 위로해 주었던 글귀   |");
+    out.println("\t\t|＿＿＿＿＿＿＿＿＿＿＿＿＿| ");
+    out.println("\t\t(\\__/) || ");
+    out.println("\t\t(oㅅo).|| ");
+    out.println("\t\t/ . . . .づ");
+    out.println("                   ");
+
     this.member = MemberLoginCommand.returnmember();
-    out.println("내가 기억하고 싶은 말들,,");
-    for (int i = 0; i< member.favoriteFortuneList.size(); i++) {
-      out.println(i+1 +". "+member.favoriteFortuneList.get(i));
+    for (int i = 0; i < member.favoriteFortuneList.size(); i++) {
+      out.println("\t\t" + i+1 +". "+member.favoriteFortuneList.get(i));
     }
+    out.println("                   ");
   }
 }

@@ -23,12 +23,12 @@ public class LunchAddCommand implements Command {
       return;
     }
     try {
-      System.out.printf("점심을 등록합니다");
+      out.printf("\t\t[점심을 등록합니다.]");
 
-      lunch.setLunch(Prompt.inputString("입력", out, in));
+      lunch.setLunch(Prompt.inputString("\t\t점심 메뉴 입력> ", out, in));
     } catch (Exception e) {
 
-      System.out.println("운세 등록 오류");
+      out.println("\t\t점심 등록 오류");
     }
 
     lunchList.add(lunch);

@@ -18,39 +18,37 @@ public class MemberLoginCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
-      out.println("[아이디에 빈 문자열을 입력하면 로그인이 취소됩니다.]");
+      out.println("\t\t[아이디에 빈 문자열을 입력하면 로그인이 취소됩니다.]");
       while (true) {
-        String Id = Prompt.inputString("ID : ", out, in);
+        String Id = Prompt.inputString("\t\tID : ", out, in);
 
         if(Id.equals("")) {
           break;
         }
 
-        String Password = Prompt.inputString("Password : ", out, in);
+        String Password = Prompt.inputString("\t\tPassword : ", out, in);
         member = FindId(Id);
 
         if (member == null) {
-          out.println("입력하신 아이디가 일치하지 않습니다.");
-          out.println("다시 입력하시오.");
+          out.println("\t\t입력하신 아이디가 일치하지 않습니다.");
+          out.println("\t\t다시 입력하세요.");
         } else if(member.getId().equals(Id) && member.getPassword().equals(Password)) {
           loginStatus = true;
 
           if(Id.equals("admin")) {
-            out.println("[관리자 계정으로 로그인 했습니다.]");
-            out.println("사용 할 수 있는 명령창을 보시려면 /admin/command를 입력해 주세요.");
+            out.println("\t\t[관리자 계정으로 로그인 했습니다.]");
           } else {
-            out.println("Fortune에 [일반 회원]으로 접속하였습니다.");
-            out.printf("[%s]님 안녕하세요!\n", returnmember().getId());
-            out.println("사용 할 수 있는 명령창을 보시려면 /user/command를 입력해 주세요.");
+            out.println("\t\tFortune에 [일반 회원]으로 접속하였습니다.");
+            out.printf("\t\t[%s]님 안녕하세요!\n", returnmember().getId());
           }
           break;
         } else {
-          out.println("입력하신 패스워드가 일치하지 않습니다.");
-          out.println("다시 입력하시오.");
+          out.println("\t\t입력하신 패스워드가 일치하지 않습니다.");
+          out.println("\t\t다시 입력하세요.");
         }
       }
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
+      out.printf("\t\t작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
 

@@ -17,32 +17,40 @@ public class MemberUpdateCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
-      out.println("[회원 정보변경]");
-      String Id = Prompt.inputString("회원 Id ", out, in);
+      out.println("                   ");
+      out.println("\t\t|￣￣￣￣￣￣￣￣￣￣￣￣￣|");
+      out.println("\t\t|     내 정보 변경하기     |");
+      out.println("\t\t|＿＿＿＿＿＿＿＿＿＿＿＿＿| ");
+      out.println("\t\t(\\__/) || ");
+      out.println("\t\t(oㅅo).|| ");
+      out.println("\t\t/ . . . .づ");
+      out.println("                   ");
+
+      String Id = Prompt.inputString("\t\t회원 Id ", out, in);
       Member member = FindId(Id);
 
       if (member == null) {
-        out.println("해당 Id의 회원이 없습니다.");
+        out.println("\t\t해당 Id의 회원이 없습니다.");
         return;
       }
 
       String name = Prompt.inputString(
-          String.format("이름(%s)? ", member.getName()), out, in);
-      String password = Prompt.inputString("암호? ", out, in);
+          String.format("\t\t이름(%s)? ", member.getName()), out, in);
+      String password = Prompt.inputString("\t\t암호? ", out, in);
 
-      String response = Prompt.inputString("정말 변경하시겠습니까?(y/N) ", out, in);
+      String response = Prompt.inputString("\t\t정말 변경하시겠습니까?(y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
-        out.println("회원 변경을 취소하였습니다.");
+        out.println("\t\t회원 변경을 취소하였습니다.");
         return;
       }
 
       member.setName(name);
       member.setPassword(password);
 
-      out.println("회원을 변경하였습니다.");
+      out.println("\t\t회원을 변경하였습니다.");
 
     } catch (Exception e) {
-      out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
+      out.printf("\t\t작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
 

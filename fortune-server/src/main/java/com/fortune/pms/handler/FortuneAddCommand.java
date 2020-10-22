@@ -23,16 +23,16 @@ public class FortuneAddCommand implements Command {
       out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
       return;
     }
-    out.println("\t\t운세를 등록합니다");
+    out.println("\t\t[운세를 등록합니다]");
 
     Fortune fortune = new Fortune();
     try {
-      fortune.setFortune(Prompt.inputString("입력", out, in));
+      fortune.setFortune(Prompt.inputString("\t\t운세 문구 입력> ", out, in));
 
-      out.println("운세 등록 완료!");
+      out.println("\t\t[운세 등록 완료!]");
     } catch (Exception e) {
 
-      out.println("운세 등록 오류");
+      out.println("\t\t[운세 등록 오류]");
     }
 
     fortuneList.add(fortune);

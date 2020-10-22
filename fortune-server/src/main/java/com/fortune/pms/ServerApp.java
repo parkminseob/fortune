@@ -121,7 +121,7 @@ public class ServerApp {
 
       if (request.equalsIgnoreCase("stop")) {
         stop = true; // 서버의 상태를 멈추라는 의미로 true로 설정한다.
-        out.println("서버를 종료하는 중입니다!");
+        out.println("\t\t서버를 종료하는 중입니다!");
         out.println();
         out.flush();
         return;

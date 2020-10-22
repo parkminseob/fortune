@@ -25,17 +25,17 @@ public class AdminMemberGradeCommand implements Command {
         return;
       }
 
-      out.println("[회원등급 관리]");
-      String Id = Prompt.inputString("회원 Id : ",out, in);
+      out.println("\t\t[회원등급 관리]");
+      String Id = Prompt.inputString("\t\t회원 Id : ",out, in);
       Member member = FindId(Id);
 
       if (Id == null) {
-        out.println("해당 Id의 회원이 없습니다.");
+        out.println("\t\t해당 Id의 회원이 없습니다.");
         return;
       }
 
-      out.println("회원 등급 설정");
-      int grade = Prompt.inputInt("1.우수회원 / 2.불량회원", out, in);
+      out.println("\t\t[회원 등급 설정]");
+      int grade = Prompt.inputInt("\t\t1.우수회원 / 2.불량회원", out, in);
       String userGrade = null;
       switch(grade) {
         case 1 : userGrade = "[우수 회원]"; break;
