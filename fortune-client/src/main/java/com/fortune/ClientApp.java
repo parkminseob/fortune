@@ -21,8 +21,14 @@ public class ClientApp {
 
     host = args[0];
     port = Integer.parseInt(args[1]);
-    System.out.println("\t\t로그인이나 회원가입을 해주세요.");
+    System.out.println("                          ");
+    System.out.println("                          ");
+    System.out.println("\t\t로그인이나 회원가입을 해주세요. 제발 부탁드립니다.");
+    System.out.println("                          ");
     System.out.println("\t\t로그인 : /login , 회원가입 : /join");
+    System.out.println("                          ");
+    System.out.println("                          ");
+
 
     while (true) {
       String[] arr = new String[5];
@@ -34,21 +40,25 @@ public class ClientApp {
       for (int i = 0; i < arr.length; i++) {
         System.out.println(arr[i]);
       }
-      String[] arr2 = new String[9];
+      String[] arr2 = new String[10];
       arr2[0] = "\t\t----------------------------------------------------";
-      arr2[1] = "\t\t\t\t    버스타서 할거읎제~ ";
+      arr2[1] = "\t\t\t\t☆ ☆ ☆ 땅    콩☆ ☆ ☆ ";
       arr2[2] = "\t\t-------------------------------------관리자 메뉴---";
       arr2[3] = "\t\t   1. 오늘의 운세! \t\t|    a. 운세 추가하기 ";
       arr2[4] = "\t\t   2. 점심 뭐먹지? \t\t|    b. 회원 상세보기  ";
-      arr2[5] = "\t\t   3. 내 정보\t\t \t|    c. 회원 리스트 ";
-      arr2[6] = "\t\t   4. 내 정보 바꾸기\t\t|    d. 회원 관리 ";
-      arr2[7] = "\t\t   5. 날 지우기,, \t\t|    e. 메뉴 추가 ";
-      arr2[8] = "\t\t----------------------------------------------------";
+      arr2[5] = "\t\t   3. 날 위로해줬던,, \t\t|    c. 회원 리스트 ";
+      arr2[6] = "\t\t   4. 내 정보\t\t \t|    d. 회원 관리 ";
+      arr2[7] = "\t\t   5. 내 정보 바꾸기\t\t|    e. 점심 메뉴 추가 ";
+      arr2[8] = "\t\t   6. 날 지우기,, \t\t|    ";
+      arr2[9] = "\t\t----------------------------------------------------";
       for (int i = 0; i < arr2.length; i++) {
         System.out.println(arr2[i]);
         System.out.println();
       }
       String input = Prompt.inputString("\t\t 번호를 선택하세요 => ");
+      System.out.println("                          ");
+
+
 
       if (input.equalsIgnoreCase("quit"))
         break;

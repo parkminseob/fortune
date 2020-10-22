@@ -130,9 +130,10 @@ public class ServerApp {
       switch (request) {
         case "1": request = "/fortune/res"; break;
         case "2": request = "/lunch/res"; break;
-        case "3": request = "/member/detail"; break;
-        case "4": request = "/member/update"; break;
-        case "5": request = "/member/delete"; break;
+        case "3": request = "/fortune/list"; break;
+        case "4": request = "/member/detail"; break;
+        case "5": request = "/member/update"; break;
+        case "6": request = "/member/delete"; break;
 
 
         case "a": request = "/fortune/add"; break;
