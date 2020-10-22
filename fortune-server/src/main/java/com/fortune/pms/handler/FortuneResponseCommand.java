@@ -34,8 +34,5 @@ public class FortuneResponseCommand implements Command{
       e.printStackTrace();
       System.out.println("운세 좋아요 표시중 오류!");
     }
-
   }
-
-
 }

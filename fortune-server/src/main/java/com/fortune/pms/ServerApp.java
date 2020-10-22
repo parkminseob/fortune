@@ -14,9 +14,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import com.fortune.context.ApplicationContextListener;
-import com.fortune.pms.domain.Member;
 import com.fortune.pms.handler.Command;
-import com.fortune.pms.handler.MemberLoginCommand;
 import com.fortune.pms.listener.AppInitListener;
 import com.fortune.pms.listener.DataHandlerListener;
 import com.fortune.pms.listener.RequestMappingListener;
@@ -72,11 +70,6 @@ public class ServerApp {
           break;
         }
 
-        if(MemberLoginCommand.loginStatus()) {
-          out.println("사용 할 수 있는 명령창을 보시려면 /admin/command를 입력해 주세요.");
-
-        }
-
         // 람다 문법 사용
         pool.execute(() -> handleClient(clientSocket));
       }
@@ -91,7 +84,7 @@ public class ServerApp {
     try {
       if (!pool.awaitTermination(10,TimeUnit.SECONDS)) {
         System.out.println("아직 종료 안된 작업이 있다.");
-        System.out.println("남아있는 작없의 강제 종료를 시도하겠다.");
+        System.out.println("남아있는 작업의 강제 종료를 시도하겠다.");
         pool.shutdownNow();
         if (!pool.awaitTermination(10,TimeUnit.SECONDS)) {
           System.out.println("스레드풀의 강제 종료를 완료하지 못했다.");
@@ -133,9 +126,29 @@ public class ServerApp {
         out.flush();
         return;
       }
-      Member member = MemberLoginCommand.returnmember();
+
       switch (request) {
         case "1": request = "/board/add"; break;
+        case "2": request = "/board/detail"; break;
+        case "3": request = "/board/update"; break;
+        case "4": request = "/board/delete"; break;
+        case "5": request = "/board/list"; break;
+        case "6": request = "/member/detail"; break;
+        case "7": request = "/member/update"; break;
+        case "8": request = "/member/delete"; break;
+        case "9": request = "/fortune/res"; break;
+        case "10": request = "/lunch/res"; break;
+
+        case "a": request = "/fortune/add"; break;
+        case "b": request = "/member/detail"; break;
+        case "c": request = "/member/list"; break;
+        case "d": request = "/member/grade"; break;
+        case "e": request = "/board/add"; break;
+        case "f": request = "/board/detail"; break;
+        case "g": request = "/board/update"; break;
+        case "h": request = "/board/delete"; break;
+        case "i": request = "/board/list"; break;
+        case "j": request = "/lunch/add"; break;
       }
 
       Command command = (Command) context.get(request);
@@ -157,4 +170,33 @@ public class ServerApp {
     System.out.printf("클라이언트(%s)와의 연결을 끊었습니다.\n",
         address.getHostAddress());
   }
+  /*
+  private static void showMemberCommandList() {
+    System.out.println("1 : 오늘의 운세 보기");
+    System.out.println("2 : 게시글 추가하기");
+    System.out.println("3 : 게시글 상세보기");
+    System.out.println("4 : 게시글 수정하기");
+    System.out.println("5 : 게시글 삭제하기");
+    System.out.println("6 : 게시글 리스트 보기");
+    System.out.println("7 : 회원 상세조회");
+    System.out.println("8 : 회원 정보수정");
+    System.out.println("9 : 회원 탈퇴");
+    System.out.println("quit : 앱 종료");
+  }
+
+  private static void showAdminCommandList() {
+    System.out.println("a : 오늘의 운세 추가");
+    System.out.println("b : 오늘의 운세 보기");
+    System.out.println("c : 회원 상세조회");
+    System.out.println("d : 전체 회원리스트");
+    System.out.println("e : 회원 등급 설정");
+    System.out.println("f : 게시글 추가하기");
+    System.out.println("g : 게시글 상세보기");
+    System.out.println("h : 게시글 수정하기");
+    System.out.println("i : 게시글 삭제하기");
+    System.out.println("j : 게시글 리스트 보기");
+    System.out.println("quit : 앱 종료");
+    System.out.println("stop : 서버 종료");
+  }
+   */
 }

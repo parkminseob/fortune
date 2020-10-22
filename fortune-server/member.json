@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-[{"name":"1234","password":"1234","id":"1234","age":0,"userGrade":0,"fortuneList":["1234","1234","1234","1234","오늘은 나가면 큰일난다.ㄹㅇ"],"favoriteFortuneList":["1234","오늘은 나가면 큰일난다.ㄹㅇ"]}]
-=======
-[{"name":"관리자","password":"1234","id":"admin","age":0,"fortuneList":[],"favoriteFortuneList":[]},{"name":"1234","password":"1234","id":"park","gender":"여자","age":20,"checkMemberGrade":"[불량 회원]","fortuneList":[],"favoriteFortuneList":[]}]
->>>>>>> branch 'main' of https://github.com/sejunO/fortune.git
+[{"name":"park","password":"1234","id":"park","gender":"여자","age":20,"fortuneList":[],"favoriteFortuneList":[]},{"name":"������","password":"1234","id":"admin","gender":"여자","age":60,"fortuneList":[],"favoriteFortuneList":[]}]
