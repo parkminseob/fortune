@@ -9,7 +9,6 @@ import com.fortune.pms.handler.CommandListCommand;
 import com.fortune.pms.handler.FortuneAddCommand;
 import com.fortune.pms.handler.FortuneResponseCommand;
 import com.fortune.pms.handler.HelloCommand;
-import com.fortune.pms.handler.MemberAddCommand;
 import com.fortune.pms.handler.MemberDeleteCommand;
 import com.fortune.pms.handler.MemberDetailCommand;
 import com.fortune.pms.handler.MemberJoinCommand;
@@ -29,7 +28,6 @@ public class RequestMappingListener implements ApplicationContextListener {
 
 
     MemberListCommand memberListCommand = new MemberListCommand(memberList);
-    context.put("/member/add", new MemberAddCommand(memberList));
     context.put("/member/list", memberListCommand);
     context.put("/member/detail", new MemberDetailCommand(memberList));
     context.put("/member/update", new MemberUpdateCommand(memberList));

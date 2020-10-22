@@ -19,13 +19,12 @@ public class MemberJoinCommand implements Command {
     try {
       out.println("[아이디에 빈 문자열을 입력하면 회원가입이 취소됩니다.]");
       String Id = Prompt.inputString("ID : ", out, in);
-      String Password = Prompt.inputString("Password : ", out, in);
-      String Password2 = Prompt.inputString("Password Confirm : ", out, in);
-      String Name = Prompt.inputString("Name : ", out, in);
-
       if(Id.equals("")) {
         return;
       }
+      String Password = Prompt.inputString("Password : ", out, in);
+      String Password2 = Prompt.inputString("Password Confirm : ", out, in);
+      String Name = Prompt.inputString("Name : ", out, in);
 
       if(TestId(Id)) {
         out.println("중복된 ID입니다.");

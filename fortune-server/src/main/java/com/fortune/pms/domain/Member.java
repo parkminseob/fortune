@@ -3,12 +3,17 @@ package com.fortune.pms.domain;
 import java.sql.Date;
 
 public class Member {
+  final static int ADMINISTER = 1;
+  final static int NORMAL_USER = 2;
+
   private String name;
   private String password;
   private String id;
+  private int userGrade;
   private Date registeredDate;
 
   public Member() {
+    this.userGrade = ADMINISTER;
     this.name = "관리자";
     this.password = "1234";
     this.id = "admin";
@@ -43,5 +48,9 @@ public class Member {
   }
   public void setRegisteredDate(Date registeredDate) {
     this.registeredDate = registeredDate;
+  }
+
+  public int getUserGrade() {
+    return userGrade;
   }
 }
