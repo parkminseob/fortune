@@ -24,6 +24,8 @@ public class ClientApp {
     System.out.println("로그인 : /login , 회원가입 : /join");
 
     while (true) {
+      System.out.println("커맨드 리스트를 보려면 /member/command를 입력하세요.");
+
       String input = Prompt.inputString("명령> ");
 
       if (input.equalsIgnoreCase("quit"))
