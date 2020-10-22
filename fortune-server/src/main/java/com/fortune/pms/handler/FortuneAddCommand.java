@@ -15,14 +15,16 @@ public class FortuneAddCommand implements Command {
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-    System.out.println("운세 등록");
+    System.out.printf("운세 등록합니다");
 
     Fortune fortune = new Fortune();
     try {
       fortune.setFortune(Prompt.inputString("입력", out, in));
     } catch (Exception e) {
-      e.printStackTrace();
+
       System.out.println("운세 등록 오류");
     }
+
+    fortuneList.add(fortune);
   }
 }

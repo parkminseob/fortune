@@ -3,8 +3,14 @@ package com.fortune.pms.listener;
 import java.util.List;
 import java.util.Map;
 import com.fortune.context.ApplicationContextListener;
+import com.fortune.pms.domain.Board;
 import com.fortune.pms.domain.Fortune;
 import com.fortune.pms.domain.Member;
+import com.fortune.pms.handler.BoardAddCommand;
+import com.fortune.pms.handler.BoardDeleteCommand;
+import com.fortune.pms.handler.BoardDetailCommand;
+import com.fortune.pms.handler.BoardListCommand;
+import com.fortune.pms.handler.BoardUpdateCommand;
 import com.fortune.pms.handler.CommandListCommand;
 import com.fortune.pms.handler.FortuneAddCommand;
 import com.fortune.pms.handler.FortuneResponseCommand;
@@ -25,18 +31,23 @@ public class RequestMappingListener implements ApplicationContextListener {
     // 옵저버가 작업한 결과를 맵에서 꺼낸다.
     List<Member> memberList = (List<Member>) context.get("memberList");
     List<Fortune> fortuneList = (List<Fortune>) context.get("fortuneList");
-
+    List<Board> boardList = (List<Board>) context.get("boardList");
 
     MemberListCommand memberListCommand = new MemberListCommand(memberList);
+    context.put("/board/add", new BoardAddCommand(boardList));
+    context.put("/board/list", new BoardListCommand(boardList));
+    context.put("/board/detail", new BoardDetailCommand(boardList));
+    context.put("/board/update", new BoardUpdateCommand(boardList));
+    context.put("/board/delete", new BoardDeleteCommand(boardList));
     context.put("/member/list", memberListCommand);
     context.put("/member/detail", new MemberDetailCommand(memberList));
     context.put("/member/update", new MemberUpdateCommand(memberList));
     context.put("/member/delete", new MemberDeleteCommand(memberList));
     context.put("/fortune/add", new FortuneAddCommand(fortuneList));
-    context.put("/fortune/res", new FortuneResponseCommand(fortuneList));
+    context.put("/fortune/res", new FortuneResponseCommand(fortuneList, memberList));
     context.put("/login", new MemberLoginCommand(memberList));
     context.put("/join", new MemberJoinCommand(memberList));
-    context.put("/logout", new MemberLogoutCommand());
+    context.put("/logout", new MemberLogoutCommand(memberList));
     context.put("/command", new CommandListCommand());
   }
 

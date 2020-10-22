@@ -8,10 +8,10 @@ import com.fortune.util.Prompt;
 
 public class MemberLoginCommand implements Command {
   List<Member> memberList;
+  Member loggedInMember;
 
   public MemberLoginCommand(List<Member> list) {
     this.memberList = list;
-    memberList.add(new Member());
   }
 
   @Override
