@@ -9,7 +9,6 @@ import com.fortune.util.Prompt;
 public class MemberJoinCommand implements Command {
 
   List<Member> memberList;
-
   public MemberJoinCommand(List<Member> list) {
     this.memberList = list;
   }

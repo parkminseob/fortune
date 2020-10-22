@@ -1,6 +1,8 @@
 package com.fortune.pms.domain;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Member {
   final static int ADMINISTER = 1;
@@ -11,7 +13,25 @@ public class Member {
   private String id;
   private int userGrade;
   private Date registeredDate;
+  private List<String> fortuneList = new ArrayList<>();
+  private List<String> favoriteFortuneList = new ArrayList<>();
 
+
+  public List<String> getFortuneList() {
+    return fortuneList;
+  }
+
+  public void setFortuneList(List<String> fortuneList) {
+    this.fortuneList = fortuneList;
+  }
+
+  public List<String> getFavoriteFortuneList() {
+    return favoriteFortuneList;
+  }
+
+  public void setFavoriteFortuneList(List<String> favoriteFortuneList) {
+    this.favoriteFortuneList = favoriteFortuneList;
+  }
 
   public Member() {
 

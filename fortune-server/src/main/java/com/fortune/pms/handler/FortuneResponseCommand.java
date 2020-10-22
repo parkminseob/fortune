@@ -19,7 +19,9 @@ public class FortuneResponseCommand implements Command{
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-    Member member = FindId(Id);
+    MemberLoginCommand member = new MemberLoginCommand(memberList);
+
+
     int index = (int) (Math.random() * fortuneList.size());
     String response = fortuneList.get(index).getFortune();
     out.println(response);
@@ -27,12 +29,5 @@ public class FortuneResponseCommand implements Command{
 
   }
 
-  private Member FindId(String Id) {
-    for(Member member : memberList) {
-      if(member.getId().equals(Id)) {
-        return member;
-      }
-    }
-    return null;
-  }
+
 }
