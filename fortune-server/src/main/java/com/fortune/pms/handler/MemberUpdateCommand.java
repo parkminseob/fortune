@@ -17,12 +17,12 @@ public class MemberUpdateCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
-      out.println("[회원 변경]");
-      String Id = Prompt.inputString("번호? ", out, in);
+      out.println("[회원 정보변경]");
+      String Id = Prompt.inputString("회원 Id ", out, in);
       Member member = FindId(Id);
 
       if (member == null) {
-        out.println("해당 번호의 회원이 없습니다.");
+        out.println("해당 Id의 회원이 없습니다.");
         return;
       }
 

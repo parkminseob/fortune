@@ -1,6 +1,8 @@
 package com.fortune.pms.domain;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Member {
   final static int ADMINISTER = 1;
@@ -9,9 +11,31 @@ public class Member {
   private String name;
   private String password;
   private String id;
-  private int userGrade;
-  private Date registeredDate;
+  private String gender;
+  private int age;
 
+  private int userGrade;
+  private String checkMemberGrade;
+  private Date registeredDate;
+  private List<String> fortuneList = new ArrayList<>();
+  private List<String> favoriteFortuneList = new ArrayList<>();
+
+
+  public List<String> getFortuneList() {
+    return fortuneList;
+  }
+
+  public void setFortuneList(List<String> fortuneList) {
+    this.fortuneList = fortuneList;
+  }
+
+  public List<String> getFavoriteFortuneList() {
+    return favoriteFortuneList;
+  }
+
+  public void setFavoriteFortuneList(List<String> favoriteFortuneList) {
+    this.favoriteFortuneList = favoriteFortuneList;
+  }
 
   public Member() {
 
@@ -21,6 +45,30 @@ public class Member {
     this.id = id;
     this.password = password;
     this.name = name;
+  }
+
+  public String getGender() {
+    return gender;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
+
+  public int getAge() {
+    return age;
+  }
+
+  public void setAge(int age) {
+    this.age = age;
+  }
+
+  public String getCheckBadMember() {
+    return checkMemberGrade;
+  }
+
+  public void setCheckBadMember(String checkBadMember) {
+    this.checkMemberGrade = checkBadMember;
   }
 
   public String getId() {

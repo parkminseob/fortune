@@ -7,8 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
-
-import com.fortune.pms.listener.Gson;
+import com.google.gson.Gson;
 
 public class Logout implements Command {
 @Override
@@ -20,6 +19,13 @@ public void execute(PrintWriter out, BufferedReader in) {
 	
 }
 private void saveData(Collection<?> list, File file) {
+=======
+  @Override
+  public void execute(PrintWriter out, BufferedReader in) {
+
+  }
+  private void saveData(Collection<?> list, File file) {
+>>>>>>> branch 'main' of https://github.com/sejunO/fortune.git
     BufferedWriter out = null;
 
     try {

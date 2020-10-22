@@ -3,13 +3,14 @@ package com.fortune.pms.handler;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
+
 import com.fortune.pms.domain.Member;
 import com.fortune.util.Prompt;
 
 public class MemberLoginCommand implements Command {
   List<Member> memberList;
-  Member member;
-  
+  Member loggedInMember;
+ static Member member;
   public MemberLoginCommand(List<Member> list) {
     this.memberList = list;
   }
@@ -26,7 +27,7 @@ public class MemberLoginCommand implements Command {
         }
 
         String Password = Prompt.inputString("Password : ", out, in);
-        this.member = FindId(Id);
+        member = FindId(Id);
 
         if (member == null) {
           out.println("입력하신 아이디가 일치하지 않습니다.");
@@ -52,9 +53,10 @@ public class MemberLoginCommand implements Command {
   }
   
   
-  public Member returnmember() {
-    return this.member;
+  public static Member returnmember() {
+    return member;
   }
+
   private Member FindId(String Id) {
     for(Member member : memberList) {
       if(member.getId().equals(Id)) {

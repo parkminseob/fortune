@@ -22,7 +22,7 @@ public class MemberDeleteCommand implements Command {
       Member member = FindId(Id);
 
       if (Id == null) {
-        out.println("해당 번호의 회원이 없습니다.");
+        out.println("해당 Id의 회원이 없습니다.");
         return;
       }
 

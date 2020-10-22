@@ -14,6 +14,5 @@ public class CommandListCommand implements Command {
     out.println("/member/delete : 회원 탈퇴");
     out.println("/fortune/add : 운세 등록");
     out.println("/fortune/res : 운세 보기");
-    out.println("/hello : 헬로우!");
   }
 }
