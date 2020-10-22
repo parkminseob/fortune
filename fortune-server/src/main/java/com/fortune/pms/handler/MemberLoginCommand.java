@@ -8,7 +8,7 @@ import com.fortune.util.Prompt;
 
 public class MemberLoginCommand implements Command {
   List<Member> memberList;
-  Member member;
+  static Member member;
   public MemberLoginCommand(List<Member> list) {
     this.memberList = list;
   }
@@ -23,9 +23,9 @@ public class MemberLoginCommand implements Command {
         if(Id.equals("")) {
           break;
         }
-        this.member = FindId(Id);
 
         String Password = Prompt.inputString("Password : ", out, in);
+        member = FindId(Id);
 
         if (member == null) {
           out.println("입력하신 아이디가 일치하지 않습니다.");
@@ -50,8 +50,10 @@ public class MemberLoginCommand implements Command {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
   }
-  public Member returnmember() {
-    return this.member;
+
+
+  public static Member returnmember() {
+    return member;
   }
 
   private Member FindId(String Id) {

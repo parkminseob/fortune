@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+
 import com.fortune.pms.domain.Fortune;
 import com.fortune.pms.domain.Member;
 
@@ -19,18 +20,12 @@ public class FortuneResponseCommand implements Command{
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-    MemberLoginCommand member = new MemberLoginCommand(memberList);
-
-
-    MemberLoginCommand mm = new MemberLoginCommand(memberList);
-    Member members = mm.returnmember();
+	Member member = MemberLoginCommand.returnmember();
     int index = (int) (Math.random() * fortuneList.size());
     String response = fortuneList.get(index).getFortune();
-    out.println(members.getName());
+    out.println(member.getId());
     out.println(response);
     stack.push(response);
-
   }
-
 
 }
