@@ -25,6 +25,7 @@ public class ClientApp {
 
     while (true) {
       String input = Prompt.inputString("명령> ");
+
       if (input.equalsIgnoreCase("quit"))
         break;
 
@@ -34,8 +35,6 @@ public class ClientApp {
         break;
     }
     System.out.println("안녕!");
-
-
   }
 
   private static void request(String message) {

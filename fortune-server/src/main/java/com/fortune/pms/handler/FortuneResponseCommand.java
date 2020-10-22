@@ -24,7 +24,7 @@ public class FortuneResponseCommand implements Command{
     out.println(member.getId()+ "님의 운세는....");
     try {
       Thread.sleep(3000);
-
+      out.println(member.getId()+ "님의 운세는....");
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -44,9 +44,6 @@ public class FortuneResponseCommand implements Command{
       e.printStackTrace();
       System.out.println("운세 좋아요 표시중 오류!");
     }
-
   }
-
-
 
 }
