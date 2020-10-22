@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
 import com.fortune.pms.domain.Member;
+import com.fortune.util.Prompt;
 
 public class MemberDetailCommand implements Command {
 
@@ -15,10 +16,10 @@ public class MemberDetailCommand implements Command {
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-    /*try {
+    try {
       out.println("[회원 상세보기]");
-      int no = Prompt.inputInt("번호? ", out, in);
-      Member member = findByNo(no);
+      String Id = Prompt.inputString("Id? ", out, in);
+      Member member = FindId(Id);
 
       if (member == null) {
         out.println("해당 번호의 회원이 없습니다.");
@@ -34,14 +35,22 @@ public class MemberDetailCommand implements Command {
     }
   }
 
-  private Member findByNo(int no) {
-    for (int i = 0; i < memberList.size(); i++) {
-      Member member = memberList.get(i);
-      if (member.getNo() == no) {
+  private Member FindId(String Id) {
+    for(Member member : memberList) {
+      if(member.getId().equals(Id)) {
         return member;
       }
     }
     return null;
-     */
   }
+  //  private Member findByNo(int no) {
+  //    for (int i = 0; i < memberList.size(); i++) {
+  //      Member member = memberList.get(i);
+  //      if (member.getNo() == no) {
+  //        return member;
+  //      }
+  //    }
+  //    return null;
+  //
+  //  }
 }

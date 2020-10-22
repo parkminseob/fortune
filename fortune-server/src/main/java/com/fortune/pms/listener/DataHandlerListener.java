@@ -21,9 +21,9 @@ import com.google.gson.Gson;
 public class DataHandlerListener implements ApplicationContextListener {
 
 
-
   List<Member> memberList = new LinkedList<>();
   List<Fortune> fortuneList = new ArrayList<>();
+
   File memberFile = new File("./member.json"); // 회원을 저장할 파일 정보
   File fortuneFile = new File("./fortune.json");
 

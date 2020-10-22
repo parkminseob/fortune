@@ -9,7 +9,6 @@ import com.fortune.pms.handler.CommandListCommand;
 import com.fortune.pms.handler.FortuneAddCommand;
 import com.fortune.pms.handler.FortuneResponseCommand;
 import com.fortune.pms.handler.HelloCommand;
-import com.fortune.pms.handler.MemberAddCommand;
 import com.fortune.pms.handler.MemberDeleteCommand;
 import com.fortune.pms.handler.MemberDetailCommand;
 import com.fortune.pms.handler.MemberJoinCommand;
@@ -20,6 +19,8 @@ import com.fortune.pms.handler.MemberUpdateCommand;
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
 public class RequestMappingListener implements ApplicationContextListener {
 
+
+
   @SuppressWarnings("unchecked")
   @Override
   public void contextInitialized(Map<String,Object> context) {
@@ -29,13 +30,12 @@ public class RequestMappingListener implements ApplicationContextListener {
 
 
     MemberListCommand memberListCommand = new MemberListCommand(memberList);
-    context.put("/member/add", new MemberAddCommand(memberList));
     context.put("/member/list", memberListCommand);
     context.put("/member/detail", new MemberDetailCommand(memberList));
     context.put("/member/update", new MemberUpdateCommand(memberList));
     context.put("/member/delete", new MemberDeleteCommand(memberList));
     context.put("/fortune/add", new FortuneAddCommand(fortuneList));
-    context.put("/fortune/res", new FortuneResponseCommand(fortuneList));
+    context.put("/fortune/res", new FortuneResponseCommand(fortuneList, memberList));
     context.put("/hello", new HelloCommand());
     context.put("/login", new MemberLoginCommand(memberList));
     context.put("/join", new MemberJoinCommand(memberList));

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import com.fortune.context.ApplicationContextListener;
 import com.fortune.pms.handler.Command;
 import com.fortune.pms.listener.AppInitListener;
@@ -77,20 +78,21 @@ public class ServerApp {
     }
 
     notifyApplicationContextListenerOnServiceStopped();
-    //    pool.shutdown();
-    //    try {
-    //      if (!pool.awaitTermination(10,TimeUnit.SECONDS)) {
-    //        System.out.println("아직 종료 안된 작업이 있다.");
-    //        System.out.println("남아있는 작없의 강제 종료를 시도하겠다.");
-    //        pool.shutdownNow();
-    //        if (!pool.awaitTermination(10,TimeUnit.SECONDS)) {
-    //          System.out.println("스레드풀의 강제 종료를 완료하지 못했다.");
-    //        } else {
-    //          System.out.println("모든 작업을 강제 종료했다.");
-    //        }
-    //      }
-    //    } catch (Exception e) {
-    //    }
+
+    pool.shutdown();
+    try {
+      if (!pool.awaitTermination(10,TimeUnit.SECONDS)) {
+        System.out.println("아직 종료 안된 작업이 있다.");
+        System.out.println("남아있는 작없의 강제 종료를 시도하겠다.");
+        pool.shutdownNow();
+        if (!pool.awaitTermination(10,TimeUnit.SECONDS)) {
+          System.out.println("스레드풀의 강제 종료를 완료하지 못했다.");
+        } else {
+          System.out.println("모든 작업을 강제 종료했다.");
+        }
+      }
+    } catch (Exception e) {
+    }
   }
 
   public static void main(String[] args) {

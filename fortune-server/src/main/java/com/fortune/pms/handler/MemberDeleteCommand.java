@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
 import com.fortune.pms.domain.Member;
+import com.fortune.util.Prompt;
 
 public class MemberDeleteCommand implements Command {
 
@@ -14,13 +15,13 @@ public class MemberDeleteCommand implements Command {
   }
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-    /*
+
     try {
       out.println("[회원 삭제]");
-      int no = Prompt.inputInt("번호? ", out, in);
-      int index = indexOf(no);
+      String Id = Prompt.inputString("Id? ", out, in);
+      Member member = FindId(Id);
 
-      if (index == -1) {
+      if (Id == null) {
         out.println("해당 번호의 회원이 없습니다.");
         return;
       }
@@ -31,7 +32,7 @@ public class MemberDeleteCommand implements Command {
         return;
       }
 
-      memberList.remove(index);
+      memberList.remove(member);
       out.println("회원을 삭제하였습니다.");
 
     } catch (Exception e) {
@@ -39,14 +40,21 @@ public class MemberDeleteCommand implements Command {
     }
   }
 
-  private int indexOf(int no) {
-    for (int i = 0; i < memberList.size(); i++) {
-      Member member = memberList.get(i);
-      if (member.getNo() == no) {
-        return i;
+  private Member FindId(String Id) {
+    for(Member member : memberList) {
+      if(member.getId().equals(Id)) {
+        return member;
       }
     }
-    return -1;
-     */
+    return null;
   }
+  //  private int indexOf(int no) {
+  //    for (int i = 0; i < memberList.size(); i++) {
+  //      Member member = memberList.get(i);
+  //      if (member.getNo() == no) {
+  //        return i;
+  //      }
+  //    }
+  //    return -1;
+  //  }
 }
