@@ -10,9 +10,11 @@ import com.fortune.pms.domain.Member;
 
 public class FortuneResponseCommand implements Command{
   List<Fortune> fortuneList = new ArrayList<>();
+  List<Member> memberList = new ArrayList<>();
   Stack<String> stack = new Stack<>();
   public FortuneResponseCommand(List<Fortune> fortuneList, List<Member> memberList) {
     this.fortuneList = fortuneList;
+    this.memberList = memberList;
   }
 
   @Override
