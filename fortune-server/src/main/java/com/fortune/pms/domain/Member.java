@@ -15,7 +15,7 @@ public class Member {
   private int age;
 
   private int userGrade;
-  private String checkBadMember;
+  private String checkMemberGrade;
   private Date registeredDate;
   private List<String> fortuneList = new ArrayList<>();
   private List<String> favoriteFortuneList = new ArrayList<>();
@@ -64,11 +64,11 @@ public class Member {
   }
 
   public String getCheckBadMember() {
-    return checkBadMember;
+    return checkMemberGrade;
   }
 
   public void setCheckBadMember(String checkBadMember) {
-    this.checkBadMember = checkBadMember;
+    this.checkMemberGrade = checkBadMember;
   }
 
   public String getId() {

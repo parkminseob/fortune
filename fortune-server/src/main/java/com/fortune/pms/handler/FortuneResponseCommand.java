@@ -23,10 +23,10 @@ public class FortuneResponseCommand implements Command{
 
 
     MemberLoginCommand mm = new MemberLoginCommand(memberList);
-    Member member = mm.returnmember();
+    Member members = mm.returnmember();
     int index = (int) (Math.random() * fortuneList.size());
     String response = fortuneList.get(index).getFortune();
-    out.println(member.getName());
+    out.println(members.getName());
     out.println(response);
     stack.push(response);
 
