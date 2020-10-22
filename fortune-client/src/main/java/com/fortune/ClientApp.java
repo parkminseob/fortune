@@ -22,6 +22,7 @@ public class ClientApp {
     port = Integer.parseInt(args[1]);
 
     while (true) {
+      System.out.println("[Command목록을 보고싶다면 /Command라고 입력해주세요.]");
       String input = Prompt.inputString("명령> ");
       if (input.equalsIgnoreCase("quit"))
         break;
@@ -33,6 +34,10 @@ public class ClientApp {
     }
     System.out.println("안녕!");
 
+
+  }
+
+  public void commandList() {
 
   }
 

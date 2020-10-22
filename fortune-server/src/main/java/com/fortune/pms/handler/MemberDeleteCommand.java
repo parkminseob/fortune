@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
 import com.fortune.pms.domain.Member;
-import com.fortune.util.Prompt;
 
 public class MemberDeleteCommand implements Command {
 
@@ -13,9 +12,9 @@ public class MemberDeleteCommand implements Command {
   public MemberDeleteCommand(List<Member> list) {
     this.memberList = list;
   }
-
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
+    /*
     try {
       out.println("[회원 삭제]");
       int no = Prompt.inputInt("번호? ", out, in);
@@ -48,5 +47,6 @@ public class MemberDeleteCommand implements Command {
       }
     }
     return -1;
+     */
   }
 }

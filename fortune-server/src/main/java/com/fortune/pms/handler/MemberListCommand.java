@@ -25,10 +25,8 @@ public class MemberListCommand implements Command {
     while (iterator.hasNext()) {
       Member member = iterator.next();
       out.printf("%d, %s, %s, %s, %s\n",
-          member.getNo(),
           member.getName(),
-          member.getEmail(),
-          member.getTel(),
+          member.getId(),
           member.getRegisteredDate());
     }
   }
