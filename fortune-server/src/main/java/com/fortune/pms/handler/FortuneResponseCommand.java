@@ -5,9 +5,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
 import com.fortune.pms.domain.Fortune;
 import com.fortune.pms.domain.Member;
+import com.fortune.util.Prompt;
 
 public class FortuneResponseCommand implements Command{
   List<Fortune> fortuneList = new ArrayList<>();
@@ -20,12 +20,22 @@ public class FortuneResponseCommand implements Command{
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-	Member member = MemberLoginCommand.returnmember();
+    Member member = MemberLoginCommand.returnmember();
     int index = (int) (Math.random() * fortuneList.size());
     String response = fortuneList.get(index).getFortune();
-    out.println(member.getId());
-    out.println(response);
-    stack.push(response);
+    out.printf(member.getId()+ "님! " + response);
+    member.fortuneList.add(response);
+    try {
+      String favorite = Prompt.inputString("운세가 맘에 들면 다음에 또 보자 ===> good", out, in);
+      if (favorite.equals("good") && !member.favoriteFortuneList.contains(response)) {
+        member.favoriteFortuneList.add(response);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+      System.out.println("운세 좋아요 표시중 오류!");
+    }
+
   }
+
 
 }

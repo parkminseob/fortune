@@ -15,6 +15,7 @@ import java.util.Map;
 import com.fortune.context.ApplicationContextListener;
 import com.fortune.pms.domain.Board;
 import com.fortune.pms.domain.Fortune;
+import com.fortune.pms.domain.Lunch;
 import com.fortune.pms.domain.Member;
 import com.google.gson.Gson;
 
@@ -25,10 +26,12 @@ public class DataHandlerListener implements ApplicationContextListener {
   List<Member> memberList = new LinkedList<>();
   List<Fortune> fortuneList = new ArrayList<>();
   List<Board> boardList = new ArrayList<>();
+  List<Lunch> lunchList = new ArrayList<>();
 
   File memberFile = new File("./member.json"); // 회원을 저장할 파일 정보
   File fortuneFile = new File("./fortune.json");
   File boardFile = new File("./board.json"); // 게시글을 저장할 파일 정보
+  File lunchFile = new File("./lunch.json");
 
   @Override
   public void contextInitialized(Map<String,Object> context) {
@@ -37,6 +40,7 @@ public class DataHandlerListener implements ApplicationContextListener {
     loadData(boardList, boardFile, Board[].class);
     loadData(memberList, memberFile, Member[].class);
     loadData(fortuneList, fortuneFile, Fortune[].class);
+    loadData(lunchList, lunchFile, Lunch[].class);
 
     // 옵저버가 파일에서 데이터(게시글,회원,프로젝트,작업)를 읽어
     // List 컬렉션에 저장한 다음,
@@ -44,6 +48,7 @@ public class DataHandlerListener implements ApplicationContextListener {
     context.put("boardList", boardList);
     context.put("memberList", memberList);
     context.put("fortuneList", fortuneList);
+    context.put("lunchList", lunchList);
   }
 
   @Override
@@ -53,6 +58,7 @@ public class DataHandlerListener implements ApplicationContextListener {
     saveData(boardList, boardFile);
     saveData(memberList, memberFile);
     saveData(fortuneList, fortuneFile);
+    saveData(lunchList, lunchFile);
   }
 
   private <T> void loadData(

@@ -37,7 +37,6 @@ public class MemberLoginCommand implements Command {
             break;
           }
 
-          out.println(returnmember().getId());
           out.printf("%s님 안녕하세요!\n", Id);
           out.println("Fortune에 접속하였습니다.");
           break;

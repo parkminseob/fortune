@@ -13,9 +13,10 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
 import com.fortune.context.ApplicationContextListener;
+import com.fortune.pms.domain.Member;
 import com.fortune.pms.handler.Command;
+import com.fortune.pms.handler.MemberLoginCommand;
 import com.fortune.pms.listener.AppInitListener;
 import com.fortune.pms.listener.DataHandlerListener;
 import com.fortune.pms.listener.RequestMappingListener;
@@ -125,6 +126,10 @@ public class ServerApp {
         out.println();
         out.flush();
         return;
+      }
+      Member member = MemberLoginCommand.returnmember();
+      switch (request) {
+        case "1": request = "/board/add"; break;
       }
 
       Command command = (Command) context.get(request);

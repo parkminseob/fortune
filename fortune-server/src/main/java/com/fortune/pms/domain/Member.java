@@ -17,8 +17,8 @@ public class Member {
   private int userGrade;
   private String checkMemberGrade;
   private Date registeredDate;
-  private List<String> fortuneList = new ArrayList<>();
-  private List<String> favoriteFortuneList = new ArrayList<>();
+  public List<String> fortuneList = new ArrayList<>();
+  public List<String> favoriteFortuneList = new ArrayList<>();
 
 
   public List<String> getFortuneList() {

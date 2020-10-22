@@ -20,7 +20,6 @@ public class ClientApp {
 
     host = args[0];
     port = Integer.parseInt(args[1]);
-
     while (true) {
       System.out.println("[Command목록을 보고싶다면 /Command라고 입력해주세요.]");
       String input = Prompt.inputString("명령> ");
