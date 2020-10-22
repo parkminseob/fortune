@@ -11,8 +11,8 @@ public class Member {
   private int age;
   private String checkMemberGrade;
 
-  private List<String> fortuneList = new ArrayList<>();
-  private List<String> favoriteFortuneList = new ArrayList<>();
+  public List<String> fortuneList = new ArrayList<>();
+  public List<String> favoriteFortuneList = new ArrayList<>();
 
   public Member() {
     this.id = "admin";
