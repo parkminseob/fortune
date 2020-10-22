@@ -12,18 +12,20 @@ public class LunchResponseCommand implements Command{
   }
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-
-    out.println("_                          _     ");
-    out.println("| |                        | |    ");
-    out.println("| |     _   _  _ __    ___ | |__  ");
-    out.println("| |    | | | || '_ \\  / __|| '_ \\ ");
-    out.println("| |____| |_| || | | || (__ | | | |");
-    out.println("\\_____/ \\__,_||_| |_| \\___||_| |_|");
+    out.println("                                     ");
+    out.println("\t\t _                          _     ");
+    out.println("\t\t| |                        | |    ");
+    out.println("\t\t| |     _   _  _ __    ___ | |__  ");
+    out.println("\t\t| |    | | | || '_ \\  / __|| '_ \\ ");
+    out.println("\t\t| |____| |_| || | | || (__ | | | |");
+    out.println("\t\t\\_____/ \\__,_||_| |_| \\___||_| |_|");
+    out.println("                                     ");
     out.println("                                     ");
 
     int index = (int) (Math.random() * lunchList.size());
     String response = lunchList.get(index).getLunch();
-    out.println("오늘의 점심은 " + response + "!!!");
+    out.println("\t\t오늘의 점심은 " + response + "먹자!!!");
+    out.println("                                     ");
   }
 }
 
