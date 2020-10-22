@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
 import com.fortune.pms.domain.Board;
+import com.fortune.pms.domain.Member;
 import com.fortune.util.Prompt;
 
 public class BoardDetailCommand implements Command {
@@ -17,6 +18,7 @@ public class BoardDetailCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
+      Member member = MemberLoginCommand.returnmember();
       out.println("[게시물 상세보기]");
       int no = Prompt.inputInt("번호? ", out, in);
       Board board = findByNo(no);
@@ -30,7 +32,7 @@ public class BoardDetailCommand implements Command {
 
       out.printf("제목: %s\n", board.getTitle());
       out.printf("내용: %s\n", board.getContent());
-      out.printf("작성자: %s\n", board.getWriter());
+      out.printf("작성자: %s, %s\n", board.getWriter(), member.getcheckMemberGrade());
       out.printf("등록일: %s\n", board.getRegisteredDate());
       out.printf("조회수: %d\n", board.getViewCount());
 

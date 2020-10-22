@@ -53,7 +53,7 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/user/command", new ShowMemberCommandListCommand());
     context.put("/login", new MemberLoginCommand(memberList));
     context.put("/join", new MemberJoinCommand(memberList));
-    context.put("/logout", new MemberLogoutCommand(memberList));
+    context.put("/logout", new MemberLogoutCommand());
 
   }
 

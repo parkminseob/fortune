@@ -15,6 +15,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import com.fortune.context.ApplicationContextListener;
 import com.fortune.pms.handler.Command;
+import com.fortune.pms.handler.MemberLoginCommand;
 import com.fortune.pms.listener.AppInitListener;
 import com.fortune.pms.listener.DataHandlerListener;
 import com.fortune.pms.listener.RequestMappingListener;
@@ -69,6 +70,12 @@ public class ServerApp {
         if (stop) {
           break;
         }
+
+        if(MemberLoginCommand.loginStatus()) {
+          out.println("사용 할 수 있는 명령창을 보시려면 /admin/command를 입력해 주세요.");
+
+        }
+
         // 람다 문법 사용
         pool.execute(() -> handleClient(clientSocket));
       }

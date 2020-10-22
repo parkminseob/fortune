@@ -9,6 +9,7 @@ import com.fortune.util.Prompt;
 public class MemberLoginCommand implements Command {
   List<Member> memberList;
   static Member member;
+  static boolean loginStatus = false;
 
   public MemberLoginCommand(List<Member> list) {
     this.memberList = list;
@@ -32,16 +33,16 @@ public class MemberLoginCommand implements Command {
           out.println("입력하신 아이디가 일치하지 않습니다.");
           out.println("다시 입력하시오.");
         } else if(member.getId().equals(Id) && member.getPassword().equals(Password)) {
+          loginStatus = true;
 
           if(Id.equals("admin")) {
             out.println("[관리자 계정으로 로그인 했습니다.]");
-            out.println("사용 할 수 있는 명령창을 보시려면 /admin/command를 입력해 주세요.");
-            break;
+
+
           }
 
-          out.println(returnmember().getId());
           out.println("Fortune에 [일반 회원]으로 접속하였습니다.");
-          out.printf("[%s]님 안녕하세요!\n", Id);
+          out.printf("[%s]님 안녕하세요!\n", returnmember().getId());
           out.println("사용 할 수 있는 명령창을 보시려면 /user/command를 입력해 주세요.");
 
           break;
@@ -53,6 +54,10 @@ public class MemberLoginCommand implements Command {
     } catch (Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
+  }
+
+  public static boolean loginStatus() {
+    return loginStatus;
   }
 
   public static Member returnmember() {
