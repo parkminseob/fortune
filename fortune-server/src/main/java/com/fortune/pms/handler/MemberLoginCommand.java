@@ -33,9 +33,9 @@ public class MemberLoginCommand implements Command {
           out.println("\t\t입력하신 아이디가 일치하지 않습니다.");
           out.println("\t\t다시 입력하세요.");
         } else if(member.getId().equals(Id) && member.getPassword().equals(Password)) {
-          loginStatus = true;
 
           if(Id.equals("admin")) {
+            loginStatus = true;
             out.println("\t\t[관리자 계정으로 로그인 했습니다.]");
           } else {
             out.println("\t\tFortune에 [일반 회원]으로 접속하였습니다.");
