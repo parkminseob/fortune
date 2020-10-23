@@ -19,8 +19,8 @@ public class FortuneListCommand implements Command{
     out.println("                   ");
 
     this.member = MemberLoginCommand.returnmember();
-    for (int i = 0; i < member.favoriteFortuneList.size(); i++) {
-      out.println("\t\t" + i+1 +". "+member.favoriteFortuneList.get(i));
+    for (int i = 1; i <= member.favoriteFortuneList.size(); i++) {
+      out.println("\t\t" + i +". "+member.favoriteFortuneList.get(i-1));
     }
     out.println("                   ");
   }
