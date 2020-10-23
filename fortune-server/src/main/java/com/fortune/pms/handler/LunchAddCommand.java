@@ -23,7 +23,7 @@ public class LunchAddCommand implements Command {
       return;
     }
     try {
-      out.printf("\t\t[점심을 등록합니다.]");
+      out.println("\t\t[점심을 등록합니다.]");
 
       lunch.setLunch(Prompt.inputString("\t\t점심 메뉴 입력> ", out, in));
     } catch (Exception e) {
