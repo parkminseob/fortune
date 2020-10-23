@@ -26,17 +26,11 @@ public class MemberUpdateCommand implements Command {
       out.println("\t\t/ . . . .づ");
       out.println("                   ");
 
-      String Id = Prompt.inputString("\t\t회원 Id ", out, in);
-      Member member = FindId(Id);
+      Member member = MemberLoginCommand.returnmember();
 
-      if (member == null) {
-        out.println("\t\t해당 Id의 회원이 없습니다.");
-        return;
-      }
 
       String name = Prompt.inputString(
           String.format("\t\t이름(%s)? ", member.getName()), out, in);
-      String password = Prompt.inputString("\t\t암호? ", out, in);
 
       String response = Prompt.inputString("\t\t정말 변경하시겠습니까?(y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
@@ -45,7 +39,6 @@ public class MemberUpdateCommand implements Command {
       }
 
       member.setName(name);
-      member.setPassword(password);
 
       out.println("\t\t회원을 변경하였습니다.");
 
