@@ -26,13 +26,9 @@ public class MemberDeleteCommand implements Command {
       out.println("\t\t/ . . . .づ");
       out.println("                   ");
 
-      String Id = Prompt.inputString("\t\tId? ", out, in);
-      Member member = FindId(Id);
+      Member member = MemberLoginCommand.returnmember();
 
-      if (Id == null) {
-        out.println("\t\t해당 Id의 회원이 없습니다.");
-        return;
-      }
+
 
       String response = Prompt.inputString("\t\t정말 회원탈퇴를 하실건가요?(y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
