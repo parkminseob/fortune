@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
 import com.fortune.pms.domain.Member;
-import com.fortune.util.Prompt;
 
 public class MemberDetailCommand implements Command {
 
@@ -26,8 +25,7 @@ public class MemberDetailCommand implements Command {
       out.println("\t\t/ . . . .づ");
       out.println("                   ");
 
-      String Id = Prompt.inputString("\t\tId: ", out, in);
-      Member member = FindId(Id);
+      Member member = MemberLoginCommand.returnmember();
 
       if (member == null) {
         out.println("\t\t해당 Id의 회원이 없습니다.");
