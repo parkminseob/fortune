@@ -35,11 +35,12 @@ public class AdminMemberGradeCommand implements Command {
       }
 
       out.println("\t\t[회원 등급 설정]");
-      int grade = Prompt.inputInt("\t\t1.우수회원 / 2.불량회원", out, in);
+      int grade = Prompt.inputInt("\t\t1.우수회원 / 2.불량회원 / 3.일반회원", out, in);
       String userGrade = null;
       switch(grade) {
         case 1 : userGrade = "[우수 회원]"; break;
         case 2 : userGrade = "[불량 회원]"; break;
+        case 3 : userGrade = "[일반 회원]"; break;
       }
 
       member.setcheckMemberGrader(userGrade);

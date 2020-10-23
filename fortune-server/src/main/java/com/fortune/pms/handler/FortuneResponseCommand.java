@@ -31,7 +31,7 @@ public class FortuneResponseCommand implements Command{
 
     Member member = MemberLoginCommand.returnmember();
     try {
-      Thread.sleep(3000);
+      Thread.sleep(1000);
       out.printf("\t\t%s님의 운세는....\n", member.getId());
     } catch (Exception e) {
       e.printStackTrace();
@@ -44,7 +44,9 @@ public class FortuneResponseCommand implements Command{
     out.printf("\t\t%s님! %s\n",member.getId(), response);
     member.fortuneList.add(response);
     try {
+      out.println("\t\t그냥 나가시려면 엔터를 입력하세요.");
       String favorite = Prompt.inputString("\t\t운세가 마음에 들었다면? ===> good", out, in);
+
       if (favorite.equals("good") && !member.favoriteFortuneList.contains(response)) {
         member.favoriteFortuneList.add(response);
       }

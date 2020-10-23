@@ -1,1 +1,1 @@
-[{"name":"admin","password":"1234","id":"admin","gender":"남자","age":59,"fortuneList":["남과 비교하지마세요. 당신은 소중합니다."],"favoriteFortuneList":[]},{"name":"park","password":"1234","id":"park","gender":"여자","age":20,"fortuneList":[],"favoriteFortuneList":[]}]
+[{"name":"관리자","password":"1234","id":"admin","gender":"여자","age":40,"checkMemberGrade":"[시스템 관리자]","fortuneList":[],"favoriteFortuneList":[]},{"name":"park","password":"1234","id":"park","gender":"남자","age":20,"checkMemberGrade":"[일반 회원]","fortuneList":[],"favoriteFortuneList":[]}]

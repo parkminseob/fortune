@@ -35,7 +35,9 @@ public class MemberJoinCommand implements Command {
       if(TestId(Id)) {
         out.println("\t\t중복된 ID입니다.");
       } else if(Password.equals(Password2)) {
-        memberList.add(new Member(Id, Password, Name, gender, age));
+        Member member = new Member(Id, Password, Name, gender, age);
+        member.setcheckMemberGrader("일반 회원");
+        memberList.add(member);
         out.println("\t\t회원가입이 완료되었습니다.");
       } else {
         out.println("\t\t비밀번호를 다시 입력하시오.");

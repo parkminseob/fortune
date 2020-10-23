@@ -11,7 +11,7 @@ public class FortuneListCommand implements Command{
   public void execute(PrintWriter out, BufferedReader in) {
     out.println("                   ");
     out.println("\t\t|￣￣￣￣￣￣￣￣￣￣￣￣￣|");
-    out.println("\t\t|  날 위로해 주었던 글귀   |");
+    out.println("\t\t|  날 위로해 주었던 글귀,, |");
     out.println("\t\t|＿＿＿＿＿＿＿＿＿＿＿＿＿| ");
     out.println("\t\t(\\__/) || ");
     out.println("\t\t(oㅅo).|| ");

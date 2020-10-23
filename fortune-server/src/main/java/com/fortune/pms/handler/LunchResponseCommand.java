@@ -32,7 +32,10 @@ public class LunchResponseCommand implements Command{
 
     int index = (int) (Math.random() * lunchList.size());
     String response = lunchList.get(index).getLunch();
-    out.println("\t\t오늘의 점심은 " + response + "먹자!!!");
+    try {
+      Thread.sleep(1000);
+    }catch (Exception e) {}
+    out.println("\t\t오늘의 점심은 ☆ " + response + "☆  !");
     out.println("                                     ");
   }
 }

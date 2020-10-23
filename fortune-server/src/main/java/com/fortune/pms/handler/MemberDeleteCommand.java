@@ -34,14 +34,14 @@ public class MemberDeleteCommand implements Command {
         return;
       }
 
-      String response = Prompt.inputString("\t\t정말 삭제하시겠습니까?(y/N) ", out, in);
+      String response = Prompt.inputString("\t\t정말 회원탈퇴를 하실건가요?(y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
-        out.println("\t\t회원 삭제를 취소하였습니다.");
+        out.println("\t\t탁월한 선택입니다 !");
         return;
       }
 
       memberList.remove(member);
-      out.println("\t\t회원을 삭제하였습니다.");
+      out.println("\t\t여기서 기다릴게요,, 돌아오세요.");
 
     } catch (Exception e) {
       out.printf("\t\t작업 처리 중 오류 발생! - %s\n", e.getMessage());
