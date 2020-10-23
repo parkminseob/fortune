@@ -137,10 +137,9 @@ public class ServerApp {
 
 
         case "a": request = "/fortune/add"; break;
-        case "b": request = "/member/detail"; break;
-        case "c": request = "/member/list"; break;
-        case "d": request = "/member/grade"; break;
-        case "e": request = "/lunch/add"; break;
+        case "b": request = "/member/list"; break;
+        case "c": request = "/member/grade"; break;
+        case "d": request = "/lunch/add"; break;
       }
 
       Command command = (Command) context.get(request);
