@@ -1,4 +1,4 @@
-<center><h1># Fortune(오늘의 운세) </h1></center>
+<center># Fortune(오늘의 운세) </center>
 
 - 비트캠프 2차 해커톤.
 - 이름과 나이, 성별을 입력하면 오늘의 운세를 알려주는 프로그램입니다.
