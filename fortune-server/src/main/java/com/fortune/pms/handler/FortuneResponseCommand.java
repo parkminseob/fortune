@@ -19,7 +19,7 @@ public class FortuneResponseCommand implements Command{
   }
 
   @Override
-  public void execute(PrintWriter out, BufferedReader in) {
+  public void execute(PrintWriter out, BufferedReader in, Member loggedInmember) {
     out.println("                   ");
     out.println("\t\t|￣￣￣￣￣￣￣￣￣￣￣￣￣|");
     out.println("\t\t|        오늘의 운세       |");
@@ -29,10 +29,9 @@ public class FortuneResponseCommand implements Command{
     out.println("\t\t/ . . . .づ");
     out.println("                ");
 
-    Member member = MemberLoginCommand.returnmember();
     try {
       Thread.sleep(1000);
-      out.printf("\t\t%s님의 운세는....\n", member.getId());
+      out.printf("\t\t%s님의 운세는....\n", loggedInmember.getId());
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -41,14 +40,14 @@ public class FortuneResponseCommand implements Command{
     int index = (int) (Math.random() * fortuneList.size());
     String response = fortuneList.get(index).getFortune();
 
-    out.printf("\t\t%s님! %s\n",member.getId(), response);
-    member.fortuneList.add(response);
+    out.printf("\t\t%s님! %s\n",loggedInmember.getId(), response);
+    loggedInmember.fortuneList.add(response);
     try {
       out.println("\t\t그냥 나가시려면 엔터를 입력하세요.");
       String favorite = Prompt.inputString("\t\t운세가 마음에 들었다면? ===> good", out, in);
 
-      if (favorite.equals("good") && !member.favoriteFortuneList.contains(response)) {
-        member.favoriteFortuneList.add(response);
+      if (favorite.equals("good") && !loggedInmember.favoriteFortuneList.contains(response)) {
+        loggedInmember.favoriteFortuneList.add(response);
       }
     } catch (Exception e) {
       e.printStackTrace();
@@ -56,12 +55,3 @@ public class FortuneResponseCommand implements Command{
     }
   }
 }
-
-//
-//|￣￣￣￣￣￣￣|
-//|      메시지        |
-//|＿＿＿＿＿＿＿|
-//(\__/) ||
-//(oㅅo).||
-/// . . . .づ
-//

@@ -2,13 +2,20 @@ package com.fortune.pms.handler;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.util.List;
 import com.fortune.pms.domain.Member;
 
 public class FortuneListCommand implements Command{
-  Member member;
+  List<Member> memberList;
+
+  public FortuneListCommand() {}
+
+  public FortuneListCommand(List<Member> list) {
+    this.memberList = list;
+  }
 
   @Override
-  public void execute(PrintWriter out, BufferedReader in) {
+  public void execute(PrintWriter out, BufferedReader in, Member loggedInmember) {
     out.println("                   ");
     out.println("\t\t|￣￣￣￣￣￣￣￣￣￣￣￣￣|");
     out.println("\t\t|  날 위로해 주었던 글귀,, |");
@@ -18,9 +25,8 @@ public class FortuneListCommand implements Command{
     out.println("\t\t/ . . . .づ");
     out.println("                   ");
 
-    this.member = MemberLoginCommand.returnmember();
-    for (int i = 1; i <= member.favoriteFortuneList.size(); i++) {
-      out.println("\t\t" + i +". "+member.favoriteFortuneList.get(i-1));
+    for (int i = 1; i <= loggedInmember.favoriteFortuneList.size(); i++) {
+      out.println("\t\t" + i +". "+loggedInmember.favoriteFortuneList.get(i-1));
     }
     out.println("                   ");
   }

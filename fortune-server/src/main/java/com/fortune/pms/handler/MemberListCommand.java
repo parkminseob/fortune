@@ -15,9 +15,9 @@ public class MemberListCommand implements Command {
   }
 
   @Override
-  public void execute(PrintWriter out, BufferedReader in) {
+  public void execute(PrintWriter out, BufferedReader in, Member loggedInmember) {
     out.println("\t\t[회원 목록]");
-    if (!MemberLoginCommand.loginStatus) {
+    if (!loggedInmember.getId().equals("admin")) {
       out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
       out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
       out.println("\t\t!!!!관리자만 사용할 수 있습니다!!!!");

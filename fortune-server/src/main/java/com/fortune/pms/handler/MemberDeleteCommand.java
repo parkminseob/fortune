@@ -14,7 +14,7 @@ public class MemberDeleteCommand implements Command {
     this.memberList = list;
   }
   @Override
-  public void execute(PrintWriter out, BufferedReader in) {
+  public void execute(PrintWriter out, BufferedReader in, Member loggedInmember) {
 
     try {
       out.println("                   ");
@@ -26,9 +26,13 @@ public class MemberDeleteCommand implements Command {
       out.println("\t\t/ . . . .づ");
       out.println("                   ");
 
-      Member member = MemberLoginCommand.returnmember();
+      String id = Prompt.inputString("Id? : ", out, in);
+      Member findIdmember = FindId(id);
 
-
+      if(findIdmember.getId() == null) {
+        out.println("해당 회원이 없습니다.");
+        return;
+      }
 
       String response = Prompt.inputString("\t\t정말 회원탈퇴를 하실건가요?(y/N) ", out, in);
       if (!response.equalsIgnoreCase("y")) {
@@ -36,7 +40,7 @@ public class MemberDeleteCommand implements Command {
         return;
       }
 
-      memberList.remove(member);
+      memberList.remove(findIdmember);
       out.println("\t\t여기서 기다릴게요,, 돌아오세요.");
 
     } catch (Exception e) {

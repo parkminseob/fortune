@@ -14,12 +14,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import com.fortune.context.ApplicationContextListener;
+import com.fortune.pms.domain.Member;
 import com.fortune.pms.handler.Command;
 import com.fortune.pms.listener.AppInitListener;
 import com.fortune.pms.listener.DataHandlerListener;
 import com.fortune.pms.listener.RequestMappingListener;
 
 public class ServerApp {
+  static Member defaultMember = new Member("default", "default", "default", "default", 0);
 
   // 클라이언트가 "stop" 명령을 보내면 이 값이 true로 변경된다.
   // - 이 값이 true 이면 다음 클라이언트 접속할 때 서버를 종료한다.
@@ -117,7 +119,10 @@ public class ServerApp {
         PrintWriter out = new PrintWriter(socket.getOutputStream())) {
 
       // 클라이언트가 보낸 요청을 읽는다.
-      String request = in.readLine();
+      String fullRequest = in.readLine();
+      String[] requests = fullRequest.split(",");
+      String clientId = requests[0];
+      String request = requests[1];
 
       if (request.equalsIgnoreCase("stop")) {
         stop = true; // 서버의 상태를 멈추라는 의미로 true로 설정한다.
@@ -126,6 +131,16 @@ public class ServerApp {
         out.flush();
         return;
       }
+
+      Member currentMember = defaultMember;
+      if(clientId.equals("!@!")) {
+        System.out.println("[비회원 입니다.]");
+
+      } else {
+        System.out.println("[현재 로그인된 Id : " + clientId + "]");
+        currentMember = FindClientId(clientId);
+      }
+      System.out.println("[클라이언트 요청 메시지 : " + request + "]");
 
       switch (request) {
         case "1": request = "/fortune/res"; break;
@@ -144,7 +159,7 @@ public class ServerApp {
 
       Command command = (Command) context.get(request);
       if (command != null) {
-        command.execute(out, in);
+        command.execute(out, in, currentMember);
       } else {
         out.println("해당 명령을 처리할 수 없습니다!");
       }
@@ -160,6 +175,17 @@ public class ServerApp {
 
     System.out.printf("클라이언트(%s)와의 연결을 끊었습니다.\n",
         address.getHostAddress());
+  }
+
+  @SuppressWarnings("unchecked")
+  private static Member FindClientId(String clientId) {
+    List<Member> list = (List<Member>) context.get("memberList");
+    for(Member member : list) {
+      if(member.getId().equals(clientId)) {
+        return member;
+      }
+    }
+    return null;
   }
 }
 

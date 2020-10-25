@@ -8,7 +8,7 @@ import com.fortune.util.Prompt;
 
 public class ClientApp {
 
-  static String id = "";
+  static String clientId = "!@!";
   static String host;
   static int port;
 
@@ -55,10 +55,9 @@ public class ClientApp {
         System.out.println(arr2[i]);
         System.out.println();
       }
+      System.out.println("\t\t현재 로그인 된 아이디 : " + clientId);
       String input = Prompt.inputString("\t\t 명령을 선택하세요 => ");
       System.out.println("                          ");
-
-
 
       if (input.equalsIgnoreCase("quit"))
         break;
@@ -79,7 +78,10 @@ public class ClientApp {
         PrintWriter out = new PrintWriter(socket.getOutputStream());
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 
-      out.println(message);
+      // 메시지 이전 줄에 아이디 보내기
+      // ClientId가 true면 로그아웃된 상태.
+      // false면 로그인 된 상태.
+      out.println(clientId + "," + message);
       out.flush();
 
       receiveResponse(out, in);
@@ -107,6 +109,10 @@ public class ClientApp {
       String response = in.readLine();
       if (response.length() == 0) {
         break;
+      } else if (response.length() > 3 && response.substring(0, 3).equals("!@!")) {
+
+        clientId = response.substring(3, response.length());
+
       } else if (response.equals("!{}!")) {
         // 사용자로부터 값을 입력을 받아서 서버에 보낸다.
         out.println(Prompt.inputString(""));

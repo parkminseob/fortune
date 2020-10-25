@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import com.fortune.pms.domain.Fortune;
+import com.fortune.pms.domain.Member;
 import com.fortune.util.Prompt;
 
 public class FortuneAddCommand implements Command {
@@ -14,8 +15,8 @@ public class FortuneAddCommand implements Command {
   }
 
   @Override
-  public void execute(PrintWriter out, BufferedReader in) {
-    if (!MemberLoginCommand.loginStatus) {
+  public void execute(PrintWriter out, BufferedReader in, Member loggedInmember) {
+    if (!loggedInmember.getId().equals("admin")) {
       out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
       out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
       out.println("\t\t!!!!관리자만 사용할 수 있습니다!!!!");

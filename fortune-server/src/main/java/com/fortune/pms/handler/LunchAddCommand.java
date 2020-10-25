@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.List;
 import com.fortune.pms.domain.Lunch;
+import com.fortune.pms.domain.Member;
 import com.fortune.util.Prompt;
 
 public class LunchAddCommand implements Command {
@@ -12,9 +13,9 @@ public class LunchAddCommand implements Command {
     this.lunchList = list;
   }
   @Override
-  public void execute(PrintWriter out, BufferedReader in) {
+  public void execute(PrintWriter out, BufferedReader in, Member loggedInmember) {
     Lunch lunch = new Lunch();
-    if (!MemberLoginCommand.loginStatus) {
+    if (!loggedInmember.getId().equals("admin")) {
       out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
       out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t.");
       out.println("\t\t!!!!관리자만 사용할 수 있습니다!!!!");

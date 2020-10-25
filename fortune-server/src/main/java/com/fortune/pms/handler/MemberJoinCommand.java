@@ -14,8 +14,9 @@ public class MemberJoinCommand implements Command {
   }
 
   @Override
-  public void execute(PrintWriter out, BufferedReader in) {
+  public void execute(PrintWriter out, BufferedReader in, Member loggedIntmember) {
     try {
+      out.println("[회원가입]");
       out.println("\t\t[아이디에 빈 문자열을 입력하면 회원가입이 취소됩니다.]");
       String Id = Prompt.inputString("\t\tID : ", out, in);
       if(Id.equals("")) {
